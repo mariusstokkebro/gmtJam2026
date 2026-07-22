@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c6max0841vgoh"]
+
+[ext_resource type="PackedScene" uid="uid://30va6cfbn3d3" path="res://Scenes/Player.tscn" id="1_52fb6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(2.1036072, 1, 2.093277)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[node name="MainScene" type="Node3D" unique_id=928942909]
+
+[node name="CharacterBody3D" parent="." unique_id=188544308 instance=ExtResource("1_52fb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10163057, 1.6588607, -0.17757061)
+
+[node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -4.066025)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=577310504]
+transform = Transform3D(1, 0, 0, 0, 0.24819738, 0, 0, 0, 1, 0.009249449, 0.20503473, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1337069603]
+transform = Transform3D(2.7668645, 0, 0, 0, 0.9999999, 0, 0, 0, 3.6689274, 0.016169712, -1.1677246, 0.08551663)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
+
+[node name="mesh" type="MeshInstance3D" parent="floor" unique_id=1102990220]
+transform = Transform3D(2.766865, 0, 0, 0, 1, 0, 0, 0, 3.6689277, 0, -0.9282236, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
