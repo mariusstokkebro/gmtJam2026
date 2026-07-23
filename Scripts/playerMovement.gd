@@ -7,7 +7,8 @@ var jumped = false
 var wallLeft = false
 var wallRight = false
 const baseWallrunTime = 0.9
-const SPEED = 5.0
+@export var SPEED = 5.0
+@export var WallRunSpeed = 7.0
 const JUMP_VELOCITY = 4.5
 @export var rayCastLeft: RayCast3D
 @export var rayCastRight: RayCast3D
@@ -23,9 +24,7 @@ func wall_run_time(velocity):
 	time = abs(velocity) * baseWallrunTime
 	return time
 	
-func _physics_process(delta: float) -> void:
-	print(wallRight)
-	
+func _physics_process(delta: float) -> void:	
 	elapsedTime += delta
 	# Add the gravity.
 	if not is_on_floor():
@@ -34,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall() and not is_on_floor() and not touchedWall:
 		touchedWall = true
 		wallRunTime = wall_run_time(velocity.x)
+		print(wallRunTime)
 		elapsedTime = 0
 		wall_on_side()
 	#jump from wall
@@ -41,11 +41,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jumped = true
 	#can wallrun while these are true	
-	if touchedWall == true and elapsedTime < wallRunTime and velocity.x > 0.5 and is_on_wall():
+	if touchedWall == true and elapsedTime < wallRunTime and abs(velocity.x) > 0.5 and is_on_wall():
 		if Input.is_action_just_pressed("jump") and jumped == false:
 			velocity.y = JUMP_VELOCITY
 			jumped = true
 		else:
+			SPEED = WallRunSpeed
 			velocity.y = 0
 		
 	

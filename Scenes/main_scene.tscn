@@ -35,6 +35,7 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=188544308 instance=ExtResource("1_52fb6")]
 transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -0.17757061)
+WallRunSpeed = 10.0
 
 [node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -4.066025)
