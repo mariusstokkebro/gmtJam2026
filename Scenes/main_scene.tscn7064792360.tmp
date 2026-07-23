@@ -34,7 +34,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=188544308 instance=ExtResource("1_52fb6")]
-transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -0.17757061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10163057, 1.6588607, -0.17757061)
 
 [node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -4.066025)
@@ -61,7 +61,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
 
 [node name="mesh" type="MeshInstance3D" parent="wall" unique_id=1196690000]
-transform = Transform3D(2.766865, 0, 0, 0, 0.99999994, 0, 0, 0, 3.6689277, 0, -0.92822266, 0)
+transform = Transform3D(2.766865, 0, 0, 0, 1, 0, 0, 0, 3.6689277, 0, -0.9282236, 0)
 mesh = SubResource("PlaneMesh_g4v7s")
 
 [node name="floor2" type="StaticBody3D" parent="." unique_id=394676473]
