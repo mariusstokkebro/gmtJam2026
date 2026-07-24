@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvoqhn6ajso2v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(4.164186, 1, 2.093277)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[node name="wall" type="StaticBody3D" unique_id=303465330]
+transform = Transform3D(10.684522, 0, 0, 0, -2.692706e-09, 0.99999994, 0, -0.061601933, -4.3711385e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=251918365]
+transform = Transform3D(2.7668645, 0, 0, 0, 0.9999999, 0, 0, 0, 3.6689274, 0.016169712, -1.1677246, 0.08551663)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
+
+[node name="mesh" type="MeshInstance3D" parent="." unique_id=1658019349]
+transform = Transform3D(2.766865, 0, 0, 0, 0.99999994, 0, 0, 0, 3.6689277, 0, -0.92822266, 0)
+mesh = SubResource("PlaneMesh_g4v7s")

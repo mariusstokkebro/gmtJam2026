@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxmqg437flpe" path="res://Scripts/playerMovement.gd" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://dchnjqk08j5xo" path="res://Scripts/aim_look.gd" id="2_kyqiw"]
+[ext_resource type="Script" uid="uid://hiactfux1my5" path="res://Scripts/PlayerStates.gd" id="3_gntrk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
 
@@ -29,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 [node name="CameraContainer" type="Node3D" parent="Head" unique_id=2091032244]
 
 [node name="Camera3D" type="Camera3D" parent="Head/CameraContainer" unique_id=1998920135]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75541776, -0.42950702)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49446893, 3.5252545)
 current = true
 
 [node name="RayCastRight" type="RayCast3D" parent="." unique_id=103752422]
@@ -37,3 +38,12 @@ target_position = Vector3(1, 0, 0)
 
 [node name="RayCastLeft" type="RayCast3D" parent="." unique_id=2127143349]
 target_position = Vector3(-1, 0, 0)
+
+[node name="StateMachine" type="Node" parent="." unique_id=664842039]
+script = ExtResource("3_gntrk")
+
+[node name="WallRunTimer" type="Timer" parent="." unique_id=124919367]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="WallRunTimer" to="." method="_on_wall_run_timer_timeout"]
