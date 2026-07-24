@@ -12,13 +12,14 @@ var health = 100
 @export var wallRunGravity = 0.7 
 @export var wallRunMaxFallSpeed = -1.3
 const JUMP_VELOCITY = 4.5
-@export var rayCastLeft: RayCast3D
-@export var rayCastRight: RayCast3D
+@export var rayCastFront: RayCast3D
+@export var rayCastMiddle: RayCast3D
 @onready var stateMachine = $StateMachine
 @onready var timer = $WallRunTimer
 
 func _physics_process(delta: float) -> void:
-	print (stateMachine.currentState)
+		
+	print (rayCastMiddle.get_collider())
 	apply_gravity(delta)	
 	match stateMachine.currentState:
 		stateMachine.playerState.IDLE:
@@ -95,6 +96,12 @@ func falling_state(delta: float) -> void:
 		lowestVelocity = 0
 		stateMachine.change_state(stateMachine.playerState.IDLE)
 		return
+		
+	if is_on_wall() and rayCastFront.get_collider() and rayCastMiddle.get_collider() == null:
+		velocity.y = JUMP_VELOCITY
+		stateMachine.change_state(stateMachine.playerState.JUMPING)
+		return
+		
 		 
 func wallRunning_state(delta: float) -> void:
 	# check jump FIRST, before any early-return can eat the input
@@ -131,11 +138,13 @@ func wallRunning_state(delta: float) -> void:
 func jumping_state(delta: float) -> void:
 	move_player()
 	var horizontalSpeed = Vector2(velocity.x, velocity.z).length()
-	if is_on_wall() and abs(horizontalSpeed) > 2:
+	if is_on_wall() and abs(horizontalSpeed) > 2 and rayCastFront.get_collider() == null:
 		timer.start()
 		stateMachine.change_state(stateMachine.playerState.WALLRUNNING)
 		return 
 		
+	if is_on_wall() and rayCastFront.get_collider() and rayCastMiddle.get_collider() == null:
+		velocity.y = JUMP_VELOCITY
 	if velocity.y < 0:
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
@@ -150,7 +159,8 @@ func wallJumping_state(delta: float) -> void:
 		print(velocity.y)
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
-	
+	if is_on_floor():
+		stateMachine.change_state(stateMachine.playerState.IDLE)
 	
 func take_damage(velocity):
 	health = health - velocity * 2

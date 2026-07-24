@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://30va6cfbn3d3" path="res://Scenes/Player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://dvoqhn6ajso2v" path="res://Scenes/wall.tscn" id="2_6l7je"]
+[ext_resource type="PackedScene" uid="uid://5ee267s21pqd" path="res://Scenes/propper_wall.tscn" id="3_jv6wh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -68,5 +69,5 @@ mesh = SubResource("PlaneMesh_g4v7s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18310547, 0, 0.50390625)
 shape = SubResource("BoxShape3D_yf5fn")
 
-[node name="wall2" parent="." unique_id=1781358760 instance=ExtResource("2_6l7je")]
-transform = Transform3D(-10.676176, -0.002434219, -1.7272684e-09, 0, -2.6927058e-09, 0.99999994, -0.4222021, 0.061553814, 4.367723e-08, 31.550537, 0, -0.21358085)
+[node name="PropperWall2" parent="." unique_id=13714695 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(6.917065, 0, 0, 0, 4.0296035, 0, 0, 0, 1, -3.0845861, 0, -4.162616)

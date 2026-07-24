@@ -8,10 +8,10 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
 
-[node name="Player" type="CharacterBody3D" unique_id=188544308 node_paths=PackedStringArray("rayCastLeft", "rayCastRight")]
+[node name="Player" type="CharacterBody3D" unique_id=188544308 node_paths=PackedStringArray("rayCastFront", "rayCastMiddle")]
 script = ExtResource("1_rpqav")
-rayCastLeft = NodePath("RayCastLeft")
-rayCastRight = NodePath("RayCastRight")
+rayCastFront = NodePath("RayCastFrontBottom")
+rayCastMiddle = NodePath("RayCastFrontMiddle")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1607451651]
 mesh = SubResource("CapsuleMesh_g4v7s")
@@ -33,11 +33,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49446893, 3.5252545)
 current = true
 
-[node name="RayCastRight" type="RayCast3D" parent="." unique_id=103752422]
+[node name="RayCastFrontBottom" type="RayCast3D" parent="." unique_id=103752422]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.55329573, 0)
 target_position = Vector3(1, 0, 0)
-
-[node name="RayCastLeft" type="RayCast3D" parent="." unique_id=2127143349]
-target_position = Vector3(-1, 0, 0)
 
 [node name="StateMachine" type="Node" parent="." unique_id=664842039]
 script = ExtResource("3_gntrk")
@@ -45,5 +43,8 @@ script = ExtResource("3_gntrk")
 [node name="WallRunTimer" type="Timer" parent="." unique_id=124919367]
 wait_time = 1.5
 one_shot = true
+
+[node name="RayCastFrontMiddle" type="RayCast3D" parent="." unique_id=1828935699]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.1281653, 0)
 
 [connection signal="timeout" from="WallRunTimer" to="." method="_on_wall_run_timer_timeout"]
