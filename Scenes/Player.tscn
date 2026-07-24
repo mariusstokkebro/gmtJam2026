@@ -8,10 +8,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
 
-[node name="Player" type="CharacterBody3D" unique_id=188544308 node_paths=PackedStringArray("rayCastFront", "rayCastMiddle")]
+[node name="Player" type="CharacterBody3D" unique_id=188544308 node_paths=PackedStringArray("rayCastFront", "rayCastMiddle", "head")]
 script = ExtResource("1_rpqav")
 rayCastFront = NodePath("RayCastFrontBottom")
 rayCastMiddle = NodePath("RayCastFrontMiddle")
+head = NodePath("Head")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1607451651]
 mesh = SubResource("CapsuleMesh_g4v7s")
@@ -30,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 [node name="CameraContainer" type="Node3D" parent="Head" unique_id=2091032244]
 
 [node name="Camera3D" type="Camera3D" parent="Head/CameraContainer" unique_id=1998920135]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49446893, 3.5252545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14418697, -0.2584443)
 current = true
 
 [node name="RayCastFrontBottom" type="RayCast3D" parent="." unique_id=103752422]
