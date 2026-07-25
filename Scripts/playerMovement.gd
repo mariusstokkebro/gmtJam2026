@@ -22,7 +22,7 @@ const JUMP_VELOCITY = 4.5
 
 func _physics_process(delta: float) -> void:
 		
-	print (velocity)
+	print (health)
 	apply_gravity(delta)	
 	match stateMachine.currentState:
 		stateMachine.playerState.IDLE:
@@ -105,7 +105,7 @@ func falling_state(delta: float) -> void:
 	move_player()
 	lowestVelocity = min(lowestVelocity, velocity.y)
 	if is_on_floor():
-		if lowestVelocity < -3:
+		if lowestVelocity < -15:
 			take_damage(abs(lowestVelocity))
 		lowestVelocity = 0
 		stateMachine.change_state(stateMachine.playerState.IDLE)
@@ -200,7 +200,7 @@ func sliding_state() -> void:
 		return
 	
 func take_damage(velocity):
-	health = health - velocity * 2
+	health = health - velocity * 0.5
 	
 func wall_run_time(velocity):
 	var time = 0
