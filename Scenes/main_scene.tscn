@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://30va6cfbn3d3" path="res://Scenes/Player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://dvoqhn6ajso2v" path="res://Scenes/wall.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://5ee267s21pqd" path="res://Scenes/propper_wall.tscn" id="3_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://bu0a67uayyx5b" path="res://Models/textures/terminal towers.blend" id="4_x6ack"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,19 +33,19 @@ size = Vector3(6.536133, 1, 8.771484)
 environment = SubResource("Environment_jv6wh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1113326477]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, -12.061195)
 shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=188544308 instance=ExtResource("1_52fb6")]
-transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -0.17757061)
+transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -12.238766)
 WallRunSpeed = 10.0
 
 [node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -4.066025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -16.12722)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="floor" type="StaticBody3D" parent="." unique_id=577310504]
-transform = Transform3D(1, 0, 0, 0, 0.24819738, 0, 0, 0, 1, -3.7226217, 0.20503473, 0)
+transform = Transform3D(1, 0, 0, 0, 0.24819738, 0, 0, 0, 1, -3.7226217, 0.20503473, -12.061195)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1337069603]
 transform = Transform3D(2.7668257, 0, 0, 0, 0.9999958, 0, 0, 0, 3.6688886, -0.19444036, -1.1677246, 0.08551657)
@@ -56,10 +57,10 @@ transform = Transform3D(6.13449, 0, 0, 0, 0.99999994, 0, 0, 0, 3.6689274, 0, -0.
 mesh = SubResource("PlaneMesh_g4v7s")
 
 [node name="wall" parent="." unique_id=303465330 instance=ExtResource("2_6l7je")]
-transform = Transform3D(10.684522, 0, 0, 0, -2.692706e-09, 0.99999994, 0, -0.061601933, -4.3711385e-08, 0.018498898, 0.2559238, 3.6289678)
+transform = Transform3D(10.684522, 0, 0, 0, -2.692706e-09, 0.99999994, 0, -0.061601933, -4.3711385e-08, 0.018498898, 0.2559238, -8.432228)
 
 [node name="floor2" type="StaticBody3D" parent="." unique_id=394676473]
-transform = Transform3D(1, 0, 0, 0, 0.061601937, 0, 0, 0, 1, 20.898842, -1.021688, 0)
+transform = Transform3D(1, 0, 0, 0, 0.061601937, 0, 0, 0, 1, 20.898842, -1.021688, -12.061195)
 
 [node name="mesh" type="MeshInstance3D" parent="floor2" unique_id=109058270]
 transform = Transform3D(2.766865, 0, 0, 0, 1, 0, 0, 0, 3.6689277, 0, -4.156466, 0)
@@ -70,4 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18310547, 0, 0.50390625)
 shape = SubResource("BoxShape3D_yf5fn")
 
 [node name="PropperWall2" parent="." unique_id=13714695 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(6.917065, 0, 0, 0, 4.0296035, 0, 0, 0, 1, -3.0845861, 0, -4.162616)
+transform = Transform3D(6.917065, 0, 0, 0, 4.0296035, 0, 0, 0, 1, -3.0845861, 0, -16.223812)
+
+[node name="terminal towers" parent="." unique_id=1585468525 instance=ExtResource("4_x6ack")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -251.6217, 0)
