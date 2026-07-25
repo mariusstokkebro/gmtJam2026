@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfhwa00vtxniy"
-path.s3tc="res://.godot/imported/fish tex.png-2c722fcb761dc09761d0f892498ce1d7.s3tc.ctex"
+uid="uid://cxxvdtg7lu2nr"
+path.s3tc="res://.godot/imported/terminal towers_gravel-none-c8qf54.jpg-91d51694ec202ff91aa61066a42922b6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "8ab667ab1359485c7f169b5f72116a5c"
+}
 
 [deps]
 
-source_file="res://Models/textures/fish tex.png"
-dest_files=["res://.godot/imported/fish tex.png-2c722fcb761dc09761d0f892498ce1d7.s3tc.ctex"]
+source_file="res://Models/terminal towers_gravel-none-c8qf54.jpg"
+dest_files=["res://.godot/imported/terminal towers_gravel-none-c8qf54.jpg-91d51694ec202ff91aa61066a42922b6.s3tc.ctex"]
 
 [params]
 

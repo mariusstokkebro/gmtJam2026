@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpp4a500pig4t"
-path.s3tc="res://.godot/imported/fish tex.png-fd05a7a46256add84ebc26fd2dbc6d55.s3tc.ctex"
+uid="uid://11365qklt3gl"
+path.s3tc="res://.godot/imported/terminal towers_0005-glass-building-skyscraper-texture-seamless-hr.jpg-0ac797cc278954541271b2b621e7a378.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "a0d8ac288098617d9024923aca526aa9"
+}
 
 [deps]
 
-source_file="res://Models/textures/textures/fish tex.png"
-dest_files=["res://.godot/imported/fish tex.png-fd05a7a46256add84ebc26fd2dbc6d55.s3tc.ctex"]
+source_file="res://Models/terminal towers_0005-glass-building-skyscraper-texture-seamless-hr.jpg"
+dest_files=["res://.godot/imported/terminal towers_0005-glass-building-skyscraper-texture-seamless-hr.jpg-0ac797cc278954541271b2b621e7a378.s3tc.ctex"]
 
 [params]
 
