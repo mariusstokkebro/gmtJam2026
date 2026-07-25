@@ -10,15 +10,19 @@ var health = 100
 @export var SPEED = 5.0
 @export var WallRunSpeed = 7.0
 @export var wallRunGravity = 0.7 
+@export var slidingSpeed = 2.0
+@export var slidingSlowdown = 0.97
 @export var wallRunMaxFallSpeed = -1.3
 const JUMP_VELOCITY = 4.5
-@export var rayCastLeft: RayCast3D
-@export var rayCastRight: RayCast3D
+@export var rayCastFront: RayCast3D
+@export var rayCastMiddle: RayCast3D
+@export var head: Node3D
 @onready var stateMachine = $StateMachine
 @onready var timer = $WallRunTimer
 
 func _physics_process(delta: float) -> void:
-	print (stateMachine.currentState)
+		
+	print (health)
 	apply_gravity(delta)	
 	match stateMachine.currentState:
 		stateMachine.playerState.IDLE:
@@ -38,6 +42,8 @@ func _physics_process(delta: float) -> void:
 			
 		stateMachine.playerState.WALLJUMPING:
 			wallJumping_state(delta)
+		stateMachine.playerState.SLIDING:
+			sliding_state()
 
 	move_and_slide()
 func apply_gravity(delta: float) -> void:
@@ -85,16 +91,31 @@ func running_state(delta:float) -> void:
 		
 	if Input.get_vector("moveLeft", "moveRight", "moveForwards", "moveBackwards") == Vector2.ZERO:
 		stateMachine.change_state(stateMachine.playerState.IDLE)
+		return
 	
+	if Input.is_action_just_pressed("sliding"):
+		rotation_degrees.x = 45
+		head.rotation_degrees.x = -45
+		velocity *= slidingSpeed
+		stateMachine.change_state(stateMachine.playerState.SLIDING)
+		return
+		
+			
 func falling_state(delta: float) -> void:
 	move_player()
 	lowestVelocity = min(lowestVelocity, velocity.y)
 	if is_on_floor():
-		if lowestVelocity < -3:
+		if lowestVelocity < -15:
 			take_damage(abs(lowestVelocity))
 		lowestVelocity = 0
 		stateMachine.change_state(stateMachine.playerState.IDLE)
 		return
+		
+	if is_on_wall() and rayCastFront.get_collider() and rayCastMiddle.get_collider() == null:
+		velocity.y = JUMP_VELOCITY
+		stateMachine.change_state(stateMachine.playerState.JUMPING)
+		return
+		
 		 
 func wallRunning_state(delta: float) -> void:
 	# check jump FIRST, before any early-return can eat the input
@@ -131,11 +152,13 @@ func wallRunning_state(delta: float) -> void:
 func jumping_state(delta: float) -> void:
 	move_player()
 	var horizontalSpeed = Vector2(velocity.x, velocity.z).length()
-	if is_on_wall() and abs(horizontalSpeed) > 2:
+	if is_on_wall() and abs(horizontalSpeed) > 2 and rayCastFront.get_collider() == null:
 		timer.start()
 		stateMachine.change_state(stateMachine.playerState.WALLRUNNING)
 		return 
 		
+	if is_on_wall() and rayCastFront.get_collider() and rayCastMiddle.get_collider() == null:
+		velocity.y = JUMP_VELOCITY
 	if velocity.y < 0:
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
@@ -150,10 +173,34 @@ func wallJumping_state(delta: float) -> void:
 		print(velocity.y)
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
+	if is_on_floor():
+		stateMachine.change_state(stateMachine.playerState.IDLE)
+		
+func sliding_state() -> void:
+	velocity *= slidingSlowdown
 	
+	if velocity.length() < 2:
+		rotation_degrees.x = 0
+		rotation_degrees.z = 0
+		head.rotation_degrees.x = 0
+		stateMachine.change_state(stateMachine.playerState.IDLE)
+		return
+	if !is_on_floor() and velocity.y < -5:
+		rotation_degrees.x = 0
+		rotation_degrees.z = 0
+		head.rotation_degrees.x = 0
+		stateMachine.change_state(stateMachine.playerState.FALLING)
+		return
+	if Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_VELOCITY
+		rotation_degrees.x = 0
+		rotation_degrees.z = 0
+		head.rotation_degrees.x = 0
+		stateMachine.change_state(stateMachine.playerState.JUMPING)
+		return
 	
 func take_damage(velocity):
-	health = health - velocity * 2
+	health = health - velocity * 0.5
 	
 func wall_run_time(velocity):
 	var time = 0

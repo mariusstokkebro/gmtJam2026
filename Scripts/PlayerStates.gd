@@ -8,7 +8,8 @@ enum playerState
 	WALLRUNNING,
 	JUMPING,
 	WALLSLIDE,
-	WALLJUMPING
+	WALLJUMPING,
+	SLIDING
 }
 
 var currentState = playerState.IDLE
