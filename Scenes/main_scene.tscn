@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dvoqhn6ajso2v" path="res://Scenes/wall.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://5ee267s21pqd" path="res://Scenes/propper_wall.tscn" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://bvncfp1xoy3cu" path="res://Models/terminal towers.glb" id="4_x6ack"]
+[ext_resource type="PackedScene" uid="uid://c3kpn6im8ye7x" path="res://Models/terminal_ramp.glb" id="5_6ev3c"]
+[ext_resource type="PackedScene" uid="uid://cb0fr5gt0gov4" path="res://Models/terminal_fence.glb" id="5_iacmt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -75,3 +77,9 @@ transform = Transform3D(6.917065, 0, 0, 0, 4.0296035, 0, 0, 0, 1, -3.0845861, 0,
 
 [node name="terminal towers" parent="." unique_id=24247238 instance=ExtResource("4_x6ack")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -251.116, 0)
+
+[node name="terminal_ramp" parent="." unique_id=289102533 instance=ExtResource("5_6ev3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.676224, -1.2819645, -14.152138)
+
+[node name="terminal_fence" parent="." unique_id=1709295738 instance=ExtResource("5_iacmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.402273, -1.281951, -15.470836)
