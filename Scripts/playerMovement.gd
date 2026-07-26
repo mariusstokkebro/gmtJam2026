@@ -123,6 +123,10 @@ func running_state(delta:float) -> void:
 		stateMachine.change_state(stateMachine.playerState.SLIDING)
 		return
 		
+		
+	if height <= 0 and health >0:
+		winUI.add_score(score)
+		winUI.turn_visible()
 			
 func falling_state(delta: float) -> void:
 	move_player()
