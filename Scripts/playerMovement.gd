@@ -8,6 +8,7 @@ var height: int = 999
 var sliding = false
 var CanRoll = false
 var score: int = 0
+var time = 100
 const baseWallrunTime = 0.9
 @export var maxHealth = 100
 var health: int = 100
@@ -32,6 +33,13 @@ const JUMP_VELOCITY = 4.5
 func _ready() -> void:
 	health = maxHealth
 
+func _process(delta: float) -> void:
+	time -= delta
+	
+	if time <= 0:
+		deadUI.turn_visible()
+		stateMachine.change_state(stateMachine.playerState.DEAD)
+		return
 func _physics_process(delta: float) -> void:
 	height = (position.y * 2) + 999
 	apply_gravity(delta)	
