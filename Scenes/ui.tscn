@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://booik12enhwur"]
 
 [ext_resource type="Script" uid="uid://ktxhkrqydgis" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="FontFile" uid="uid://dmuojgoe2xe84" path="res://Fonts/TurretRoad-Regular.ttf" id="2_qdvrb"]
 
 [node name="UI" type="Control" unique_id=1453677588 node_paths=PackedStringArray("healthText", "heightText", "countdownText")]
 layout_mode = 3
@@ -21,16 +22,29 @@ offset_left = 41.0
 offset_top = 43.0
 offset_right = 81.0
 offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.011764706, 0.627451, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 32
+text = "100"
 
 [node name="HeightText" type="Label" parent="." unique_id=946111428]
 layout_mode = 0
 offset_left = 1052.0
 offset_top = 48.0
-offset_right = 1092.0
-offset_bottom = 71.0
+offset_right = 1104.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.011764706, 0.627451, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 32
+text = "999"
 
 [node name="CountDownText" type="Label" parent="." unique_id=2083799931]
 layout_mode = 0
-offset_left = 530.0
-offset_right = 570.0
-offset_bottom = 23.0
+offset_left = 41.0
+offset_top = 82.0
+offset_right = 93.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(0.011764706, 0.627451, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 32
+text = "100"
