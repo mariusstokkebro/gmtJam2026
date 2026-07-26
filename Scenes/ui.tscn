@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ktxhkrqydgis" path="res://Scripts/ui.gd" id="1_jxero"]
 
-[node name="UI" type="Control" unique_id=1453677588 node_paths=PackedStringArray("healthText", "heightText")]
+[node name="UI" type="Control" unique_id=1453677588 node_paths=PackedStringArray("healthText", "heightText", "countdownText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ mouse_filter = 2
 script = ExtResource("1_jxero")
 healthText = NodePath("healthText")
 heightText = NodePath("HeightText")
+countdownText = NodePath("CountDownText")
 
 [node name="healthText" type="Label" parent="." unique_id=1210695047]
 layout_mode = 0
@@ -27,3 +28,9 @@ offset_left = 1052.0
 offset_top = 48.0
 offset_right = 1092.0
 offset_bottom = 71.0
+
+[node name="CountDownText" type="Label" parent="." unique_id=2083799931]
+layout_mode = 0
+offset_left = 530.0
+offset_right = 570.0
+offset_bottom = 23.0
