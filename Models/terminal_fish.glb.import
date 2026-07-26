@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://v35wfoo2h8ih"
-path="res://.godot/imported/terminal towers.glb-505c78aff9c1bdff8fcb3180a9fccd59.scn"
+uid="uid://5xffln2jnarf"
+path="res://.godot/imported/terminal_fish.glb-00a6d9f261af08c7a785a41e7031e294.scn"
 
 [deps]
 
-source_file="res://Models/terminal towers.glb"
-dest_files=["res://.godot/imported/terminal towers.glb-505c78aff9c1bdff8fcb3180a9fccd59.scn"]
+source_file="res://Models/terminal_fish.glb"
+dest_files=["res://.godot/imported/terminal_fish.glb-00a6d9f261af08c7a785a41e7031e294.scn"]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
-nodes/apply_root_scale=false
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
