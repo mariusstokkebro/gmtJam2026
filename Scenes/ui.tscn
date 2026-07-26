@@ -24,27 +24,27 @@ offset_right = 81.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.011764706, 0.627451, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "100"
 
 [node name="HeightText" type="Label" parent="." unique_id=946111428]
 layout_mode = 0
-offset_left = 1052.0
-offset_top = 48.0
-offset_right = 1104.0
-offset_bottom = 84.0
+offset_left = 41.0
+offset_top = 185.0
+offset_right = 95.0
+offset_bottom = 221.0
 theme_override_colors/font_color = Color(0.011764706, 0.627451, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "999"
 
 [node name="CountDownText" type="Label" parent="." unique_id=2083799931]
 layout_mode = 0
 offset_left = 41.0
-offset_top = 82.0
-offset_right = 93.0
-offset_bottom = 118.0
+offset_top = 114.0
+offset_right = 145.0
+offset_bottom = 185.0
 theme_override_colors/font_color = Color(0.011764706, 0.627451, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "100"

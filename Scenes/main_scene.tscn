@@ -70,8 +70,10 @@ light_color = Color(1.7566079, 1.1980871, 0.7150419, 1)
 shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=188544308 node_paths=PackedStringArray("deadUI", "winUI") instance=ExtResource("1_52fb6")]
-transform = Transform3D(0.99997556, 0, -0.006989303, 0, 1, 0, 0.006989303, 0, 0.99997556, 1.3270069, 1.6588607, -12.238766)
+transform = Transform3D(0.99997556, 0, -0.006989303, 0, 1, 0, 0.006989303, 0, 0.99997556, 35.327007, 1.6588607, -31.238766)
+SPEED = 8.0
 WallRunSpeed = 10.0
+slidingSpeed = 5.0
 deadUI = NodePath("../DeadUI")
 winUI = NodePath("../Win_ui")
 
@@ -84,7 +86,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
 
 [node name="mesh" type="MeshInstance3D" parent="floor3" unique_id=2130926371]
-transform = Transform3D(19.01692, 0, 0, 0, 0.99999976, 0, 0, 0, 8.805429, 0, -0.92822266, 0)
+transform = Transform3D(19.01692, 0, 0, 0, 0.9999997, 0, 0, 0, 8.80543, 0, -0.92822266, 0)
 mesh = SubResource("PlaneMesh_g4v7s")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1efj")
 
@@ -807,12 +809,6 @@ transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 56.213867, -500, 205.34143
 [node name="terminal distantTower210" parent="other towers" unique_id=55726241 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 269.21387, -500, 205.34143)
 
-[node name="terminal distantTower211" parent="other towers" unique_id=2052760590 instance=ExtResource("11_76v2p")]
-transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 480.21387, -500, 205.34143)
-
-[node name="terminal distantTower212" parent="other towers" unique_id=1021637285 instance=ExtResource("11_76v2p")]
-transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 693.21387, -500, 205.34143)
-
 [node name="terminal distantTower213" parent="other towers" unique_id=535802364 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -783.78613, -500, 205.34143)
 
@@ -846,12 +842,6 @@ transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, 205.3414
 [node name="terminal distantTower223" parent="other towers" unique_id=2030454729 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1118.4338, -500, 205.34143)
 
-[node name="terminal distantTower224" parent="other towers" unique_id=1153792818 instance=ExtResource("11_76v2p")]
-transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, 205.34143)
-
-[node name="terminal towers2" parent="other towers" unique_id=648080588 instance=ExtResource("4_x6ack")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -251.035, 0)
-
 [node name="terminal distantTower225" parent="other towers" unique_id=1498561084 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, 205.34143)
 
@@ -866,9 +856,6 @@ transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, 205.3414
 
 [node name="terminal distantTower229" parent="other towers" unique_id=610007450 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, 205.34143)
-
-[node name="terminal distantTower230" parent="other towers" unique_id=1317426728 instance=ExtResource("11_76v2p")]
-transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, 205.34143)
 
 [node name="terminal distantTower231" parent="other towers" unique_id=1739095788 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1331.4338, -500, 205.34143)
@@ -890,9 +877,6 @@ transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -2.65856
 
 [node name="terminal distantTower237" parent="other towers" unique_id=1946749693 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1331.4338, -500, -2.6585693)
-
-[node name="terminal distantTower238" parent="other towers" unique_id=1483013029 instance=ExtResource("11_76v2p")]
-transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 693.21387, -500, -2.6585693)
 
 [node name="terminal distantTower239" parent="other towers" unique_id=582158262 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -2.6585693)
@@ -969,9 +953,6 @@ transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -183.658
 [node name="terminal distantTower249" parent="other towers" unique_id=1267518799 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1331.4338, -500, -183.65857)
 
-[node name="terminal distantTower250" parent="other towers" unique_id=1568861230 instance=ExtResource("11_76v2p")]
-transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, -183.65857)
-
 [node name="terminal distantTower251" parent="other towers" unique_id=1869744618 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -183.65857)
 
@@ -996,482 +977,886 @@ visible = false
 stream = ExtResource("12_drdnd")
 autoplay = true
 
-[node name="terminal_ramp" parent="." unique_id=306532547 instance=ExtResource("5_6ev3c")]
+[node name="level objects" type="Node" parent="." unique_id=94800524]
+
+[node name="terminal_ramp" parent="level objects" unique_id=306532547 instance=ExtResource("5_6ev3c")]
 transform = Transform3D(1, 0, 0, 0, 0.9616537, -0.2742666, 0, 0.2742666, 0.9616537, 36.308403, -1.0338528, -48.948822)
 
-[node name="terminal_fence" parent="." unique_id=1159806689 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence" parent="level objects" unique_id=1159806689 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.049828, -1.2850227, -49.725655)
 
-[node name="terminal_fence2" parent="." unique_id=398532364 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence159" parent="level objects" unique_id=324510876 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.049828, -1.2850227, -49.725655)
+
+[node name="terminal_fence163" parent="level objects" unique_id=1570214974 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.65743, -5.4003034, -53.090065)
+
+[node name="terminal_fence164" parent="level objects" unique_id=1905184100 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.65743, -5.4003034, -53.090065)
+
+[node name="terminal_fence165" parent="level objects" unique_id=21117925 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.65743, -5.4003034, -53.090065)
+
+[node name="terminal_fence166" parent="level objects" unique_id=1949758459 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.65743, -5.4003034, -53.090065)
+
+[node name="terminal_fence167" parent="level objects" unique_id=1504369746 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.65743, -5.4003034, -53.090065)
+
+[node name="terminal_fence168" parent="level objects" unique_id=273120705 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.65743, -5.4003034, -53.090065)
+
+[node name="terminal_fence169" parent="level objects" unique_id=77751699 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence170" parent="level objects" unique_id=990948055 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence171" parent="level objects" unique_id=1980689049 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence172" parent="level objects" unique_id=88731620 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence173" parent="level objects" unique_id=1016122053 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence174" parent="level objects" unique_id=528524936 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence175" parent="level objects" unique_id=1112050819 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence177" parent="level objects" unique_id=1285839221 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence178" parent="level objects" unique_id=1354438363 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4250345, -18.676079, -53.090065)
+
+[node name="terminal_fence179" parent="level objects" unique_id=1453334669 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4250345, -18.676079, -53.090065)
+
+[node name="terminal_fence176" parent="level objects" unique_id=85799621 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.657429, -11.400303, -53.090065)
+
+[node name="terminal_fence160" parent="level objects" unique_id=1120159540 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.049828, -1.2850227, -49.725655)
+
+[node name="terminal_fence161" parent="level objects" unique_id=1736059241 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.049828, -1.2850227, -49.725655)
+
+[node name="terminal_fence162" parent="level objects" unique_id=913741354 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.049828, -1.2850227, -49.725655)
+
+[node name="terminal_fence2" parent="level objects" unique_id=398532364 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.408115, -1.2850223, -49.592037)
 
-[node name="terminal_fence3" parent="." unique_id=1390689965 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence3" parent="level objects" unique_id=1390689965 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.305103, -1.2850223, -49.592037)
 
-[node name="terminal_fence4" parent="." unique_id=1174551706 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence4" parent="level objects" unique_id=1174551706 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.200764, -1.2850223, -49.592037)
 
-[node name="terminal_fence5" parent="." unique_id=1162369763 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence5" parent="level objects" unique_id=1162369763 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.097752, -1.2850223, -49.592037)
 
-[node name="terminal_fence6" parent="." unique_id=284031273 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence6" parent="level objects" unique_id=284031273 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.972944, -1.2850223, -49.592037)
 
-[node name="terminal_fence7" parent="." unique_id=1742658423 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence7" parent="level objects" unique_id=1742658423 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.869932, -1.2850223, -49.592037)
 
-[node name="terminal_fence8" parent="." unique_id=1532372904 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence8" parent="level objects" unique_id=1532372904 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.765593, -1.2850223, -49.592037)
 
-[node name="terminal_fence9" parent="." unique_id=395231827 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence9" parent="level objects" unique_id=395231827 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.66258, -1.2850223, -49.592037)
 
-[node name="terminal_fence10" parent="." unique_id=1276711538 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence10" parent="level objects" unique_id=1276711538 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.58578, -1.2850223, -49.592037)
 
-[node name="terminal_fence11" parent="." unique_id=1376760550 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence11" parent="level objects" unique_id=1376760550 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.482767, -1.2850223, -49.592037)
 
-[node name="terminal_fence12" parent="." unique_id=1291456450 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence12" parent="level objects" unique_id=1291456450 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3784275, -1.2850223, -49.592037)
 
-[node name="terminal_fence13" parent="." unique_id=1930169070 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence13" parent="level objects" unique_id=1930169070 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.275415, -1.2850223, -49.592037)
 
-[node name="terminal_fence14" parent="." unique_id=868825828 instance=ExtResource("7_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2770195, -35.9898, -55.154984)
+[node name="terminal_fence14" parent="level objects" unique_id=868825828 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8117065, -35.9898, -55.154984)
 
-[node name="terminal_fence15" parent="." unique_id=845443280 instance=ExtResource("7_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2770195, -35.9898, -55.154984)
+[node name="terminal_fence15" parent="level objects" unique_id=845443280 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.811707, -35.9898, -55.154984)
 
-[node name="terminal_fence16" parent="." unique_id=1697768464 instance=ExtResource("7_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2770195, -35.9898, -55.154984)
+[node name="terminal_fence16" parent="level objects" unique_id=1697768464 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.811707, -35.9898, -55.154984)
 
-[node name="terminal_fence17" parent="." unique_id=1144700109 instance=ExtResource("7_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2770195, -35.9898, -55.154984)
+[node name="terminal_fence17" parent="level objects" unique_id=1144700109 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.811707, -35.9898, -55.154984)
 
-[node name="terminal_fence18" parent="." unique_id=414327626 instance=ExtResource("7_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2770195, -35.9898, -55.154984)
+[node name="terminal_fence18" parent="level objects" unique_id=414327626 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.811707, -35.9898, -55.154984)
 
-[node name="terminal_fence19" parent="." unique_id=2015917095 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence180" parent="level objects" unique_id=1589039820 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence181" parent="level objects" unique_id=1139719807 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence182" parent="level objects" unique_id=644151876 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence183" parent="level objects" unique_id=1043039246 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence184" parent="level objects" unique_id=1848560660 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence201" parent="level objects" unique_id=1600286274 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence202" parent="level objects" unique_id=777147419 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence203" parent="level objects" unique_id=2138406396 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence204" parent="level objects" unique_id=1684107100 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence205" parent="level objects" unique_id=1510120095 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence206" parent="level objects" unique_id=629076534 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence207" parent="level objects" unique_id=1402236131 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence208" parent="level objects" unique_id=1283800661 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence209" parent="level objects" unique_id=982390911 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence210" parent="level objects" unique_id=1643080046 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.608484, -65.01566, -55.154984)
+
+[node name="terminal_fence211" parent="level objects" unique_id=1976840950 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence212" parent="level objects" unique_id=783104787 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence213" parent="level objects" unique_id=128755379 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence214" parent="level objects" unique_id=659400995 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence221" parent="level objects" unique_id=725165785 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence225" parent="level objects" unique_id=241346301 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence222" parent="level objects" unique_id=1775138717 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence223" parent="level objects" unique_id=189659682 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence224" parent="level objects" unique_id=984623393 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence215" parent="level objects" unique_id=1815592438 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence216" parent="level objects" unique_id=56052878 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence217" parent="level objects" unique_id=1180056012 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence218" parent="level objects" unique_id=1572657780 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence219" parent="level objects" unique_id=2132322579 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence220" parent="level objects" unique_id=1591101156 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.608482, -65.01566, -55.154984)
+
+[node name="terminal_fence185" parent="level objects" unique_id=614952277 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence186" parent="level objects" unique_id=1354558424 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence187" parent="level objects" unique_id=717817960 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence188" parent="level objects" unique_id=1000896944 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence189" parent="level objects" unique_id=1203907052 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence190" parent="level objects" unique_id=2028811682 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence191" parent="level objects" unique_id=1289978500 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence192" parent="level objects" unique_id=809251529 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence193" parent="level objects" unique_id=860303297 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence194" parent="level objects" unique_id=937050400 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence195" parent="level objects" unique_id=1381649561 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence196" parent="level objects" unique_id=1524136567 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.811707, -35.9898, -55.154984)
+
+[node name="terminal_fence197" parent="level objects" unique_id=2091691936 instance=ExtResource("7_maf8m")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, -49.811707, -35.9898, -54.154984)
+
+[node name="terminal_fence198" parent="level objects" unique_id=2089070216 instance=ExtResource("7_maf8m")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, -49.811707, -35.9898, -52.154984)
+
+[node name="terminal_fence199" parent="level objects" unique_id=1788409022 instance=ExtResource("7_maf8m")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, -49.811707, -35.9898, -50.154984)
+
+[node name="terminal_fence200" parent="level objects" unique_id=425373480 instance=ExtResource("7_maf8m")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, -49.811707, -35.9898, -48.154984)
+
+[node name="terminal_fence19" parent="level objects" unique_id=2015917095 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -54.09189)
 
-[node name="terminal_fence20" parent="." unique_id=1716189625 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence20" parent="level objects" unique_id=1716189625 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -52.09189)
 
-[node name="terminal_fence21" parent="." unique_id=469104422 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence21" parent="level objects" unique_id=469104422 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -50.09189)
 
-[node name="terminal_fence22" parent="." unique_id=166214311 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence22" parent="level objects" unique_id=166214311 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -48.09189)
 
-[node name="terminal_fence23" parent="." unique_id=251145520 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence23" parent="level objects" unique_id=251145520 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -46.09189)
 
-[node name="terminal_fence24" parent="." unique_id=1163716812 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence24" parent="level objects" unique_id=1163716812 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -58.251877)
 
-[node name="terminal_fence25" parent="." unique_id=370281727 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence25" parent="level objects" unique_id=370281727 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -60.251877)
 
-[node name="terminal_fence26" parent="." unique_id=1488001937 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence26" parent="level objects" unique_id=1488001937 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -62.251877)
 
-[node name="terminal_fence27" parent="." unique_id=2024740297 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence27" parent="level objects" unique_id=2024740297 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -64.25188)
 
-[node name="terminal_fence28" parent="." unique_id=802120580 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence28" parent="level objects" unique_id=802120580 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -66.25188)
 
-[node name="terminal_fence29" parent="." unique_id=784322802 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence29" parent="level objects" unique_id=784322802 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -68.25188)
 
-[node name="terminal_fence30" parent="." unique_id=1942606417 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence30" parent="level objects" unique_id=1942606417 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -70.25188)
 
-[node name="terminal_fence31" parent="." unique_id=611589315 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence31" parent="level objects" unique_id=611589315 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -72.25188)
 
-[node name="terminal_fence32" parent="." unique_id=692145128 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence32" parent="level objects" unique_id=692145128 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -74.25188)
 
-[node name="terminal_fence33" parent="." unique_id=862165244 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence33" parent="level objects" unique_id=862165244 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -76.25188)
 
-[node name="terminal_fence34" parent="." unique_id=1452502419 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence34" parent="level objects" unique_id=1452502419 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -78.25188)
 
-[node name="terminal_fence35" parent="." unique_id=104596851 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence35" parent="level objects" unique_id=104596851 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -80.25188)
 
-[node name="terminal_fence36" parent="." unique_id=142880228 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence36" parent="level objects" unique_id=142880228 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -82.25188)
 
-[node name="terminal_fence37" parent="." unique_id=229419147 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence37" parent="level objects" unique_id=229419147 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -84.25188)
 
-[node name="terminal_fence38" parent="." unique_id=420819699 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence38" parent="level objects" unique_id=420819699 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -86.25188)
 
-[node name="terminal_fence39" parent="." unique_id=1974888596 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence39" parent="level objects" unique_id=1974888596 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -88.25188)
 
-[node name="terminal_fence40" parent="." unique_id=1663349165 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence40" parent="level objects" unique_id=1663349165 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -90.25188)
 
-[node name="terminal_fence41" parent="." unique_id=140308292 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence41" parent="level objects" unique_id=140308292 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -92.25188)
 
-[node name="terminal_fence42" parent="." unique_id=1928631592 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence42" parent="level objects" unique_id=1928631592 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -94.25188)
 
-[node name="terminal_fence43" parent="." unique_id=781559551 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence43" parent="level objects" unique_id=781559551 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -96.25188)
 
-[node name="terminal_fence44" parent="." unique_id=1361137076 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence44" parent="level objects" unique_id=1361137076 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -98.25188)
 
-[node name="terminal_fence45" parent="." unique_id=1229406201 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence45" parent="level objects" unique_id=1229406201 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -100.25188)
 
-[node name="terminal_fence46" parent="." unique_id=1990442933 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence46" parent="level objects" unique_id=1990442933 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -102.25188)
 
-[node name="terminal_fence47" parent="." unique_id=1796686806 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence47" parent="level objects" unique_id=1796686806 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -104.25188)
 
-[node name="terminal_fence48" parent="." unique_id=1162554826 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence48" parent="level objects" unique_id=1162554826 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -106.25188)
 
-[node name="terminal_fence49" parent="." unique_id=965783476 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence49" parent="level objects" unique_id=965783476 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -108.25188)
 
-[node name="terminal_fence50" parent="." unique_id=152917047 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence50" parent="level objects" unique_id=152917047 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -110.25188)
 
-[node name="terminal_fence51" parent="." unique_id=2057783957 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence51" parent="level objects" unique_id=2057783957 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -112.25188)
 
-[node name="terminal_fence52" parent="." unique_id=258922375 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence52" parent="level objects" unique_id=258922375 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -114.25188)
 
-[node name="terminal_fence53" parent="." unique_id=851263037 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence53" parent="level objects" unique_id=851263037 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -116.25188)
 
-[node name="terminal_fence54" parent="." unique_id=2020891118 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence54" parent="level objects" unique_id=2020891118 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -118.25188)
 
-[node name="terminal_fence55" parent="." unique_id=1865963443 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence55" parent="level objects" unique_id=1865963443 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -120.25188)
 
-[node name="terminal_fence56" parent="." unique_id=2087822834 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence56" parent="level objects" unique_id=2087822834 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -122.25188)
 
-[node name="terminal_fence57" parent="." unique_id=2012467798 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence57" parent="level objects" unique_id=2012467798 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -124.25188)
 
-[node name="terminal_fence58" parent="." unique_id=1899341254 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence58" parent="level objects" unique_id=1899341254 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -126.25188)
 
-[node name="terminal_fence59" parent="." unique_id=19402670 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence59" parent="level objects" unique_id=19402670 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -128.25188)
 
-[node name="terminal_fence60" parent="." unique_id=401874593 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence60" parent="level objects" unique_id=401874593 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -130.25188)
 
-[node name="terminal_fence61" parent="." unique_id=98875089 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence61" parent="level objects" unique_id=98875089 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -132.25188)
 
-[node name="terminal_fence62" parent="." unique_id=1617199062 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence62" parent="level objects" unique_id=1617199062 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -134.25188)
 
-[node name="terminal_fence63" parent="." unique_id=1770784355 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence63" parent="level objects" unique_id=1770784355 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -136.25188)
 
-[node name="terminal_fence64" parent="." unique_id=1141262118 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence64" parent="level objects" unique_id=1141262118 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -58.251877)
 
-[node name="terminal_fence65" parent="." unique_id=1402985099 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence65" parent="level objects" unique_id=1402985099 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -60.251877)
 
-[node name="terminal_fence66" parent="." unique_id=180394238 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence66" parent="level objects" unique_id=180394238 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -62.251877)
 
-[node name="terminal_fence67" parent="." unique_id=2021357025 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence67" parent="level objects" unique_id=2021357025 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -64.25188)
 
-[node name="terminal_fence68" parent="." unique_id=796320251 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence68" parent="level objects" unique_id=796320251 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -66.25188)
 
-[node name="terminal_fence69" parent="." unique_id=1615901843 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence69" parent="level objects" unique_id=1615901843 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -68.25188)
 
-[node name="terminal_fence70" parent="." unique_id=1776492782 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence70" parent="level objects" unique_id=1776492782 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -70.25188)
 
-[node name="terminal_fence71" parent="." unique_id=806969417 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence71" parent="level objects" unique_id=806969417 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -72.25188)
 
-[node name="terminal_fence72" parent="." unique_id=1814927500 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence72" parent="level objects" unique_id=1814927500 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -74.25188)
 
-[node name="terminal_fence73" parent="." unique_id=1737679583 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence73" parent="level objects" unique_id=1737679583 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -76.25188)
 
-[node name="terminal_fence74" parent="." unique_id=2009742511 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence74" parent="level objects" unique_id=2009742511 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -78.25188)
 
-[node name="terminal_fence75" parent="." unique_id=262248829 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence75" parent="level objects" unique_id=262248829 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -80.25188)
 
-[node name="terminal_fence76" parent="." unique_id=1698869276 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence76" parent="level objects" unique_id=1698869276 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -82.25188)
 
-[node name="terminal_fence77" parent="." unique_id=248312152 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence77" parent="level objects" unique_id=248312152 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -84.25188)
 
-[node name="terminal_fence78" parent="." unique_id=1644708910 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence78" parent="level objects" unique_id=1644708910 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -86.25188)
 
-[node name="terminal_fence79" parent="." unique_id=2128154360 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence79" parent="level objects" unique_id=2128154360 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -88.25188)
 
-[node name="terminal_fence80" parent="." unique_id=2054633199 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence80" parent="level objects" unique_id=2054633199 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -90.25188)
 
-[node name="terminal_fence81" parent="." unique_id=1242121327 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence81" parent="level objects" unique_id=1242121327 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -92.25188)
 
-[node name="terminal_fence82" parent="." unique_id=1082118504 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence82" parent="level objects" unique_id=1082118504 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -94.25188)
 
-[node name="terminal_fence83" parent="." unique_id=1329225748 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence83" parent="level objects" unique_id=1329225748 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -96.25188)
 
-[node name="terminal_fence84" parent="." unique_id=1074530177 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence84" parent="level objects" unique_id=1074530177 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -98.25188)
 
-[node name="terminal_fence85" parent="." unique_id=1434629722 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence85" parent="level objects" unique_id=1434629722 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -100.25188)
 
-[node name="terminal_fence86" parent="." unique_id=1082172255 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence86" parent="level objects" unique_id=1082172255 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -102.25188)
 
-[node name="terminal_fence87" parent="." unique_id=550059689 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence87" parent="level objects" unique_id=550059689 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -104.25188)
 
-[node name="terminal_fence88" parent="." unique_id=5971056 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence88" parent="level objects" unique_id=5971056 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -106.25188)
 
-[node name="terminal_fence89" parent="." unique_id=1108015004 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence89" parent="level objects" unique_id=1108015004 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -108.25188)
 
-[node name="terminal_fence90" parent="." unique_id=1342372779 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence90" parent="level objects" unique_id=1342372779 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -110.25188)
 
-[node name="terminal_fence91" parent="." unique_id=347696759 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence91" parent="level objects" unique_id=347696759 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -112.25188)
 
-[node name="terminal_fence92" parent="." unique_id=340164876 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence92" parent="level objects" unique_id=340164876 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -114.25188)
 
-[node name="terminal_fence93" parent="." unique_id=51704381 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence93" parent="level objects" unique_id=51704381 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -116.25188)
 
-[node name="terminal_fence94" parent="." unique_id=1927202434 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence94" parent="level objects" unique_id=1927202434 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -118.25188)
 
-[node name="terminal_fence95" parent="." unique_id=1125486334 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence95" parent="level objects" unique_id=1125486334 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -120.25188)
 
-[node name="terminal_fence96" parent="." unique_id=1238664828 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence96" parent="level objects" unique_id=1238664828 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -122.25188)
 
-[node name="terminal_fence97" parent="." unique_id=1364433318 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence97" parent="level objects" unique_id=1364433318 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -124.25188)
 
-[node name="terminal_fence98" parent="." unique_id=381046465 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence98" parent="level objects" unique_id=381046465 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -126.25188)
 
-[node name="terminal_fence99" parent="." unique_id=2110277580 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence99" parent="level objects" unique_id=2110277580 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -128.25188)
 
-[node name="terminal_fence100" parent="." unique_id=1761010839 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence100" parent="level objects" unique_id=1761010839 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -130.25188)
 
-[node name="terminal_fence101" parent="." unique_id=1361409948 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence101" parent="level objects" unique_id=1361409948 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -132.25188)
 
-[node name="terminal_fence102" parent="." unique_id=1497764521 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence102" parent="level objects" unique_id=1497764521 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -134.25188)
 
-[node name="terminal_fence103" parent="." unique_id=588621146 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence103" parent="level objects" unique_id=588621146 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -136.25188)
 
-[node name="terminal_fence104" parent="." unique_id=1690859819 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence104" parent="level objects" unique_id=1690859819 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 16.46304)
 
-[node name="terminal_fence105" parent="." unique_id=295769329 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence105" parent="level objects" unique_id=295769329 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 14.463039)
 
-[node name="terminal_fence106" parent="." unique_id=742454825 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence106" parent="level objects" unique_id=742454825 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 12.463039)
 
-[node name="terminal_fence107" parent="." unique_id=511681251 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence107" parent="level objects" unique_id=511681251 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 10.463039)
 
-[node name="terminal_fence108" parent="." unique_id=756497535 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence108" parent="level objects" unique_id=756497535 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 8.463039)
 
-[node name="terminal_fence109" parent="." unique_id=1850315160 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence109" parent="level objects" unique_id=1850315160 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 6.4630394)
 
-[node name="terminal_fence110" parent="." unique_id=1955202254 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence110" parent="level objects" unique_id=1955202254 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 4.4630394)
 
-[node name="terminal_fence111" parent="." unique_id=806758297 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence111" parent="level objects" unique_id=806758297 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 2.4630394)
 
-[node name="terminal_fence112" parent="." unique_id=1015542685 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence112" parent="level objects" unique_id=1015542685 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 0.4630394)
 
-[node name="terminal_fence113" parent="." unique_id=637967747 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence113" parent="level objects" unique_id=637967747 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -1.5369606)
 
-[node name="terminal_fence114" parent="." unique_id=1726217067 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence114" parent="level objects" unique_id=1726217067 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -3.5369606)
 
-[node name="terminal_fence115" parent="." unique_id=62193880 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence115" parent="level objects" unique_id=62193880 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -5.5369606)
 
-[node name="terminal_fence116" parent="." unique_id=1711975423 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence116" parent="level objects" unique_id=1711975423 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -7.5369606)
 
-[node name="terminal_fence117" parent="." unique_id=1558559099 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence117" parent="level objects" unique_id=1558559099 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -9.536961)
 
-[node name="terminal_fence118" parent="." unique_id=1774279476 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence118" parent="level objects" unique_id=1774279476 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -11.536961)
 
-[node name="terminal_fence119" parent="." unique_id=2011762587 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence119" parent="level objects" unique_id=2011762587 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -13.536961)
 
-[node name="terminal_fence120" parent="." unique_id=766153961 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence120" parent="level objects" unique_id=766153961 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -15.536961)
 
-[node name="terminal_fence121" parent="." unique_id=1402348069 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence121" parent="level objects" unique_id=1402348069 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -17.53696)
 
-[node name="terminal_fence122" parent="." unique_id=1846511489 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence122" parent="level objects" unique_id=1846511489 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -19.53696)
 
-[node name="terminal_fence123" parent="." unique_id=1841368283 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence123" parent="level objects" unique_id=1841368283 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -21.53696)
 
-[node name="terminal_fence124" parent="." unique_id=1055940678 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence124" parent="level objects" unique_id=1055940678 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -23.53696)
 
-[node name="terminal_fence125" parent="." unique_id=1582959037 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence125" parent="level objects" unique_id=1582959037 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -25.53696)
 
-[node name="terminal_fence126" parent="." unique_id=61457000 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence126" parent="level objects" unique_id=61457000 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -27.53696)
 
-[node name="terminal_fence127" parent="." unique_id=1625009131 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence127" parent="level objects" unique_id=1625009131 instance=ExtResource("7_maf8m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -29.53696)
 
-[node name="terminal_ramp2" parent="." unique_id=1757350926 instance=ExtResource("5_6ev3c")]
+[node name="terminal_ramp2" parent="level objects" unique_id=1757350926 instance=ExtResource("5_6ev3c")]
 transform = Transform3D(1, 0, 0, 0, 0.96356076, -0.2674895, 0, 0.2674895, 0.96356076, 54.567142, -183.86636, 25.843325)
 
-[node name="terminal_fence128" parent="." unique_id=389494984 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence128" parent="level objects" unique_id=389494984 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.510227, -184.09813, 25.398666)
 
-[node name="terminal_fence129" parent="." unique_id=2073303033 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence129" parent="level objects" unique_id=2073303033 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.510227, -184.09813, 25.398666)
 
-[node name="terminal_fence131" parent="." unique_id=1221517358 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence131" parent="level objects" unique_id=1221517358 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.00528, -184.09813, 25.398666)
 
-[node name="terminal_fence130" parent="." unique_id=418064482 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence130" parent="level objects" unique_id=418064482 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence132" parent="." unique_id=577545284 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence132" parent="level objects" unique_id=577545284 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence133" parent="." unique_id=782259061 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence133" parent="level objects" unique_id=782259061 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence134" parent="." unique_id=894417446 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence134" parent="level objects" unique_id=894417446 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence135" parent="." unique_id=632655668 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence135" parent="level objects" unique_id=632655668 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence136" parent="." unique_id=1303524910 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence136" parent="level objects" unique_id=1303524910 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence137" parent="." unique_id=125118474 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence137" parent="level objects" unique_id=125118474 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence138" parent="." unique_id=156154185 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence138" parent="level objects" unique_id=156154185 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence139" parent="." unique_id=568282008 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence139" parent="level objects" unique_id=568282008 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence140" parent="." unique_id=553352065 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence140" parent="level objects" unique_id=553352065 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence141" parent="." unique_id=671596642 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence141" parent="level objects" unique_id=671596642 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence142" parent="." unique_id=1078805365 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence142" parent="level objects" unique_id=1078805365 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence143" parent="." unique_id=365808663 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence143" parent="level objects" unique_id=365808663 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence144" parent="." unique_id=506097687 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence144" parent="level objects" unique_id=506097687 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence145" parent="." unique_id=1972094738 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence145" parent="level objects" unique_id=1972094738 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence146" parent="." unique_id=2008383222 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence146" parent="level objects" unique_id=2008383222 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence147" parent="." unique_id=1053406685 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence147" parent="level objects" unique_id=1053406685 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence148" parent="." unique_id=1729845143 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence148" parent="level objects" unique_id=1729845143 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence149" parent="." unique_id=1889053502 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence149" parent="level objects" unique_id=1889053502 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence150" parent="." unique_id=1536575396 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence150" parent="level objects" unique_id=1536575396 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence151" parent="." unique_id=785148557 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence151" parent="level objects" unique_id=785148557 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence152" parent="." unique_id=482259064 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence152" parent="level objects" unique_id=482259064 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence153" parent="." unique_id=1900192334 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence153" parent="level objects" unique_id=1900192334 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence154" parent="." unique_id=1837993384 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence154" parent="level objects" unique_id=1837993384 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence155" parent="." unique_id=2013899590 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence155" parent="level objects" unique_id=2013899590 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence156" parent="." unique_id=529545396 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence156" parent="level objects" unique_id=529545396 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence157" parent="." unique_id=1440432213 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence157" parent="level objects" unique_id=1440432213 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.12881, -301.28503, -35.93837)
 
-[node name="terminal_fence158" parent="." unique_id=1452083561 instance=ExtResource("7_maf8m")]
+[node name="terminal_fence158" parent="level objects" unique_id=1452083561 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence" parent="." unique_id=1033312211 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 16.51892)
+
+[node name="terminal_fence2" parent="." unique_id=1259581288 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 14.518921)
+
+[node name="terminal_fence3" parent="." unique_id=147264293 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 12.518921)
+
+[node name="terminal_fence4" parent="." unique_id=102121731 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 10.518921)
+
+[node name="terminal_fence5" parent="." unique_id=193072280 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 8.518921)
+
+[node name="terminal_fence6" parent="." unique_id=81552472 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 6.518921)
+
+[node name="terminal_fence7" parent="." unique_id=160951761 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 4.518921)
+
+[node name="terminal_fence8" parent="." unique_id=1675658744 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 2.518921)
+
+[node name="terminal_fence9" parent="." unique_id=835651912 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, 0.5189209)
+
+[node name="terminal_fence10" parent="." unique_id=5448661 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -1.4810791)
+
+[node name="terminal_fence11" parent="." unique_id=1794312351 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -3.481079)
+
+[node name="terminal_fence12" parent="." unique_id=627773729 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -5.481079)
+
+[node name="terminal_fence13" parent="." unique_id=350667413 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -7.481079)
+
+[node name="terminal_fence14" parent="." unique_id=424760717 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -9.481079)
+
+[node name="terminal_fence15" parent="." unique_id=1968098169 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -11.481079)
+
+[node name="terminal_fence16" parent="." unique_id=206067839 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -13.481079)
+
+[node name="terminal_fence17" parent="." unique_id=1055856436 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -15.481079)
+
+[node name="terminal_fence18" parent="." unique_id=1058292732 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -17.48108)
+
+[node name="terminal_fence19" parent="." unique_id=1033283239 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -19.48108)
+
+[node name="terminal_fence20" parent="." unique_id=1130087288 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -21.48108)
+
+[node name="terminal_fence21" parent="." unique_id=1702888862 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -23.48108)
+
+[node name="terminal_fence22" parent="." unique_id=296668742 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -25.48108)
+
+[node name="terminal_fence23" parent="." unique_id=487704648 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -27.48108)
+
+[node name="terminal_fence24" parent="." unique_id=334311733 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -29.48108)
+
+[node name="terminal_fence25" parent="." unique_id=1718658671 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -31.48108)
+
+[node name="terminal_fence26" parent="." unique_id=1384063412 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -33.48108)
+
+[node name="terminal_fence27" parent="." unique_id=1935818714 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -35.48108)
+
+[node name="terminal_fence28" parent="." unique_id=2080013907 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -37.48108)
+
+[node name="terminal_fence29" parent="." unique_id=1829567859 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -39.48108)
+
+[node name="terminal_fence30" parent="." unique_id=1128798806 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -41.48108)
+
+[node name="terminal_fence31" parent="." unique_id=2099132456 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -43.48108)
+
+[node name="terminal_fence32" parent="." unique_id=1376949527 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -45.48108)
+
+[node name="terminal_fence33" parent="." unique_id=833641372 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -47.48108)
+
+[node name="terminal_fence34" parent="." unique_id=403373845 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -49.48108)
+
+[node name="terminal_fence35" parent="." unique_id=1985089566 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -51.48108)
+
+[node name="terminal_fence36" parent="." unique_id=1354819816 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -53.48108)
+
+[node name="terminal_fence37" parent="." unique_id=2129536505 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -55.48108)
+
+[node name="terminal_fence38" parent="." unique_id=1642654578 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.42637, -160.55186, -57.48108)
+
+[node name="terminal_fence39" parent="." unique_id=1574525843 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 33.098843)
+
+[node name="terminal_fence40" parent="." unique_id=1425302748 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 31.098843)
+
+[node name="terminal_fence41" parent="." unique_id=352039765 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 29.098843)
+
+[node name="terminal_fence42" parent="." unique_id=276603535 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 27.098843)
+
+[node name="terminal_fence43" parent="." unique_id=1684372160 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 25.098843)
+
+[node name="terminal_fence44" parent="." unique_id=468496654 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 23.098843)
+
+[node name="terminal_fence45" parent="." unique_id=937777718 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 21.098843)
+
+[node name="terminal_fence46" parent="." unique_id=496400886 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 12.473736)
+
+[node name="terminal_fence47" parent="." unique_id=1934328653 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 10.473736)
+
+[node name="terminal_fence48" parent="." unique_id=1560798228 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 8.473736)
+
+[node name="terminal_fence49" parent="." unique_id=926131425 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 6.473736)
+
+[node name="terminal_fence50" parent="." unique_id=1099597836 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 4.473736)
+
+[node name="terminal_fence51" parent="." unique_id=82312594 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 2.4737358)
+
+[node name="terminal_fence52" parent="." unique_id=605849061 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, 0.4737358)
+
+[node name="terminal_fence53" parent="." unique_id=1021245632 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -1.5262642)
+
+[node name="terminal_fence54" parent="." unique_id=84540172 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -3.5262642)
+
+[node name="terminal_fence55" parent="." unique_id=1379689462 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -5.526264)
+
+[node name="terminal_fence56" parent="." unique_id=1946466996 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -7.526264)
+
+[node name="terminal_fence57" parent="." unique_id=1601855968 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -9.526264)
+
+[node name="terminal_fence58" parent="." unique_id=94048705 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -11.526264)
+
+[node name="terminal_fence59" parent="." unique_id=1989389315 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -13.526264)
+
+[node name="terminal_fence60" parent="." unique_id=1650017291 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -15.526264)
+
+[node name="terminal_fence61" parent="." unique_id=1214703740 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -23.526264)
+
+[node name="terminal_fence62" parent="." unique_id=261541266 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -25.526264)
+
+[node name="terminal_fence63" parent="." unique_id=1100385696 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -27.526264)
+
+[node name="terminal_fence64" parent="." unique_id=689860183 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -29.526264)
+
+[node name="terminal_fence65" parent="." unique_id=1922325175 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -31.526264)
+
+[node name="terminal_fence66" parent="." unique_id=546811874 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -33.526264)
+
+[node name="terminal_fence67" parent="." unique_id=1227092547 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 176.1988, -359.67554, -35.526264)
