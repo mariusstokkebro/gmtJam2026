@@ -13,7 +13,7 @@ extends Node
 @export_subgroup("clamp settings")
 @export var max_pitch: float = 89
 @export var min_pitch: float = -89
-
+var camera_control_enabled := true
 
 func _ready() -> void:
 	Input.set_use_accumulated_input(false)
@@ -40,6 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		
 func aim_look(event: InputEventMouseMotion)->void:
+	if not camera_control_enabled:
+		return
 	var viewport_transform: Transform2D = get_tree().root.get_final_transform()
 	var motion: Vector2 = event.xformed_by(viewport_transform).relative
 	var degrees_per_unit: float = 0.001
@@ -71,3 +73,6 @@ func clamp_pitch()->void:
 		return
 	head.rotation.x = clamp(head.rotation.x,deg_to_rad(min_pitch),deg_to_rad(max_pitch))
 	head.orthonormalize()
+	
+func set_camera_control(enabled: bool) -> void:
+	camera_control_enabled = enabled

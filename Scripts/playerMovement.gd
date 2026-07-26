@@ -4,6 +4,8 @@ var lowestVelocity = 0
 var wallNormal
 var direction
 var lastWall
+var sliding = false
+var CanRoll = false
 const baseWallrunTime = 0.9
 @export var maxHealth = 100
 var health = 100
@@ -17,12 +19,13 @@ const JUMP_VELOCITY = 4.5
 @export var rayCastFront: RayCast3D
 @export var rayCastMiddle: RayCast3D
 @export var head: Node3D
+@export var aimLook: Node
 @onready var stateMachine = $StateMachine
 @onready var timer = $WallRunTimer
 
 func _physics_process(delta: float) -> void:
 		
-	print (health)
+	print (stateMachine.currentState)
 	apply_gravity(delta)	
 	match stateMachine.currentState:
 		stateMachine.playerState.IDLE:
@@ -42,9 +45,17 @@ func _physics_process(delta: float) -> void:
 			
 		stateMachine.playerState.WALLJUMPING:
 			wallJumping_state(delta)
+			
 		stateMachine.playerState.SLIDING:
 			sliding_state()
-
+		
+		stateMachine.playerState.WALLSLIDE:
+			wallslide_state()
+			
+		stateMachine.playerState.ROLLING:
+			rolling_state(delta)
+			
+		
 	move_and_slide()
 func apply_gravity(delta: float) -> void:
 	if !is_on_floor():
@@ -63,6 +74,11 @@ func move_player() -> void:
 	
 
 func idle_state(delta: float) -> void:
+	if CanRoll and Input.is_action_just_pressed("sliding"):
+		lowestVelocity * 0.5
+		aimLook.set_camera_control(false)
+		stateMachine.change_state(stateMachine.playerState.ROLLING)
+		return
 	if !is_on_floor():
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
@@ -80,6 +96,10 @@ func idle_state(delta: float) -> void:
 func running_state(delta:float) -> void:
 	move_player()
 	
+	if CanRoll and Input.is_action_just_pressed("sliding"):
+		lowestVelocity * 0.5
+		aimLook.set_camera_control(false)
+		stateMachine.change_state(stateMachine.playerState.ROLLING)
 	if !is_on_floor():
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
@@ -93,7 +113,7 @@ func running_state(delta:float) -> void:
 		stateMachine.change_state(stateMachine.playerState.IDLE)
 		return
 	
-	if Input.is_action_just_pressed("sliding"):
+	if Input.is_action_just_pressed("sliding") and CanRoll == false:
 		rotation_degrees.x = 45
 		head.rotation_degrees.x = -45
 		velocity *= slidingSpeed
@@ -105,9 +125,9 @@ func falling_state(delta: float) -> void:
 	move_player()
 	lowestVelocity = min(lowestVelocity, velocity.y)
 	if is_on_floor():
-		if lowestVelocity < -15:
-			take_damage(abs(lowestVelocity))
-		lowestVelocity = 0
+		CanRoll = true
+		timer.wait_time = 0.5
+		timer.start()
 		stateMachine.change_state(stateMachine.playerState.IDLE)
 		return
 		
@@ -115,7 +135,13 @@ func falling_state(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		stateMachine.change_state(stateMachine.playerState.JUMPING)
 		return
-		
+	
+	if is_on_wall() and velocity.y > -10:
+		velocity.y = 0
+		timer.wait_time = 1
+		timer.start()
+		stateMachine.change_state(stateMachine.playerState.WALLSLIDE)
+			
 		 
 func wallRunning_state(delta: float) -> void:
 	# check jump FIRST, before any early-return can eat the input
@@ -153,6 +179,7 @@ func jumping_state(delta: float) -> void:
 	move_player()
 	var horizontalSpeed = Vector2(velocity.x, velocity.z).length()
 	if is_on_wall() and abs(horizontalSpeed) > 2 and rayCastFront.get_collider() == null:
+		timer.wait_time = 1.5
 		timer.start()
 		stateMachine.change_state(stateMachine.playerState.WALLRUNNING)
 		return 
@@ -199,6 +226,35 @@ func sliding_state() -> void:
 		stateMachine.change_state(stateMachine.playerState.JUMPING)
 		return
 	
+func wallslide_state() -> void:
+	move_player()
+	if sliding == true:
+		velocity.y -= 0.001
+	else:
+		velocity.y = 0
+	if !is_on_wall():
+		sliding = false
+		timer.stop()
+		stateMachine.change_state(stateMachine.playerState.FALLING)
+		return
+		
+	if velocity.y < -10:
+		sliding = false
+		timer.stop()
+		stateMachine.change_state(stateMachine.playerState.FALLING)
+		return
+	
+func rolling_state(delta: float) -> void:
+	head.rotation_degrees.x += -360.0 * delta
+	print(head.rotation_degrees.x)
+	if head.rotation_degrees.x <= -350:
+		head.rotation_degrees.x = 0
+		aimLook.set_camera_control(true)
+		stateMachine.change_state(stateMachine.playerState.IDLE)
+		return
+	
+		
+		
 func take_damage(velocity):
 	health = health - velocity * 0.5
 	
@@ -211,3 +267,13 @@ func wall_run_time(velocity):
 func _on_wall_run_timer_timeout() -> void:
 	if stateMachine.currentState == stateMachine.playerState.WALLRUNNING:
 		stateMachine.change_state(stateMachine.playerState.FALLING)
+	
+	if stateMachine.currentState == stateMachine.playerState.WALLSLIDE:
+		sliding = true
+		
+	if stateMachine.currentState == stateMachine.playerState.IDLE or stateMachine.currentState == stateMachine.playerState.RUNNING:
+		CanRoll = false
+		if lowestVelocity < -15:
+			take_damage(abs(lowestVelocity))
+		lowestVelocity = 0
+	
