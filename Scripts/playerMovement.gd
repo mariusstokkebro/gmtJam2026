@@ -27,7 +27,7 @@ const JUMP_VELOCITY = 4.5
 
 
 func _physics_process(delta: float) -> void:
-	height = position.y +999
+	height = (position.y * 2) + 999
 	apply_gravity(delta)	
 	match stateMachine.currentState:
 		stateMachine.playerState.IDLE:
