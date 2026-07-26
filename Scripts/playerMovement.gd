@@ -132,6 +132,7 @@ func falling_state(delta: float) -> void:
 			take_damage(abs(lowestVelocity))
 		lowestVelocity = 0
 		if health <= 0:
+			deadUI.turn_visible()
 			stateMachine.change_state(stateMachine.playerState.DEAD)
 			return
 		aimLook.set_camera_control(false)
@@ -142,6 +143,7 @@ func falling_state(delta: float) -> void:
 			take_damage(abs(lowestVelocity))
 		lowestVelocity = 0
 		if health <= 0:
+			deadUI.turn_visible()
 			stateMachine.change_state(stateMachine.playerState.DEAD)
 			return
 		stateMachine.change_state(stateMachine.playerState.IDLE)
