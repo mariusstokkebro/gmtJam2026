@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://30va6cfbn3d3" path="res://Scenes/Player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://dvoqhn6ajso2v" path="res://Scenes/wall.tscn" id="2_6l7je"]
+[ext_resource type="Texture2D" uid="uid://exwfci02kuju" path="res://Models/terminal_fence_360_F_294470248_REyNa0YLS2e9PNFsEQLmNS9xsHor4wLM.jpg" id="2_m1efj"]
 [ext_resource type="PackedScene" uid="uid://5ee267s21pqd" path="res://Scenes/propper_wall.tscn" id="3_jv6wh"]
+[ext_resource type="Texture2D" uid="uid://cxxvdtg7lu2nr" path="res://Models/terminal towers_gravel-none-c8qf54.jpg" id="3_mai8y"]
 [ext_resource type="PackedScene" uid="uid://v35wfoo2h8ih" path="res://Models/terminal towers.glb" id="4_x6ack"]
 [ext_resource type="PackedScene" uid="uid://c3kpn6im8ye7x" path="res://Models/terminal_ramp.glb" id="5_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://booik12enhwur" path="res://Scenes/ui.tscn" id="5_iacmt"]
@@ -29,6 +31,14 @@ size = Vector3(1, 0.064453125, 0.9633789)
 size = Vector3(4.164186, 1, 2.093277)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1efj"]
+albedo_texture = ExtResource("3_mai8y")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mai8y"]
+albedo_texture = ExtResource("2_m1efj")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(6.536133, 1, 8.771484)
@@ -64,6 +74,32 @@ debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
 [node name="mesh" type="MeshInstance3D" parent="floor" unique_id=1102990220]
 transform = Transform3D(6.13449, 0, 0, 0, 0.99999994, 0, 0, 0, 3.6689274, 0, -0.9282236, 0)
 mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="floor3" type="StaticBody3D" parent="." unique_id=849073848]
+transform = Transform3D(85.894455, 0, 0, 0, 0.24819738, 0, 0, 0, 170.7636, 121.27738, -500.79495, -95.061195)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3" unique_id=1410273990]
+transform = Transform3D(2.7668257, 0, 0, 0, 0.9999958, 0, 0, 0, 3.6688886, -0.19444036, -1.1677246, 0.08551657)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
+
+[node name="mesh" type="MeshInstance3D" parent="floor3" unique_id=2130926371]
+transform = Transform3D(19.01692, 0, 0, 0, 0.9999999, 0, 0, 0, 8.805428, 0, -0.92822266, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_m1efj")
+
+[node name="floor4" type="StaticBody3D" parent="." unique_id=1021097549]
+transform = Transform3D(2.6657093, 0, 0, 0, 0.24819738, 0, 0, 0, -5.082719, 121.27738, -500.04138, -101.08177)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor4" unique_id=1111549868]
+transform = Transform3D(2.7668257, 0, 0, 0, 0.9999958, 0, 0, 0, 3.6688886, -0.19444036, -1.1677246, 0.08551657)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
+
+[node name="mesh" type="MeshInstance3D" parent="floor4" unique_id=258687692]
+transform = Transform3D(19.01692, 0, 0, 0, 0.9999999, 0, 0, 0, 8.805428, 0, -0.92822266, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_mai8y")
 
 [node name="wall" parent="." unique_id=303465330 instance=ExtResource("2_6l7je")]
 transform = Transform3D(10.684522, 0, 0, 0, -2.6927058e-09, 3.4011588, 0, -0.061601926, -1.4866937e-07, 0.018498898, -3.5347228, 3.6289678)
