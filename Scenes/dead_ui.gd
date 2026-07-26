@@ -7,6 +7,7 @@ func _ready() -> void:
 	retryButton.pressed.connect(_button_pressed)
 
 func turn_visible():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	visible = true
 
 func _button_pressed():

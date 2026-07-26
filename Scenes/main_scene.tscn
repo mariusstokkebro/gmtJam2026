@@ -58,6 +58,7 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=188544308 node_paths=PackedStringArray("deadUI") instance=ExtResource("1_52fb6")]
 transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -12.238766)
+maxHealth = 20
 WallRunSpeed = 10.0
 deadUI = NodePath("../DeadUI")
 
