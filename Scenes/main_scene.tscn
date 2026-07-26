@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://30va6cfbn3d3" path="res://Scenes/Player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://dvoqhn6ajso2v" path="res://Scenes/wall.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://5ee267s21pqd" path="res://Scenes/propper_wall.tscn" id="3_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://bvncfp1xoy3cu" path="res://Models/terminal towers.glb" id="4_x6ack"]
+[ext_resource type="PackedScene" uid="uid://v35wfoo2h8ih" path="res://Models/terminal towers.glb" id="4_x6ack"]
 [ext_resource type="PackedScene" uid="uid://c3kpn6im8ye7x" path="res://Models/terminal_ramp.glb" id="5_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://booik12enhwur" path="res://Scenes/ui.tscn" id="5_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cb0fr5gt0gov4" path="res://Models/terminal_fence.glb" id="7_maf8m"]
+[ext_resource type="PackedScene" uid="uid://5xffln2jnarf" path="res://Models/terminal_fish.glb" id="9_76v2p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,6 +22,7 @@ sky = SubResource("Sky_6l7je")
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(1, 0.064453125, 0.9633789)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(4.164186, 1, 2.093277)
@@ -79,11 +81,14 @@ shape = SubResource("BoxShape3D_yf5fn")
 [node name="PropperWall2" parent="." unique_id=13714695 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(6.917065, 0, 0, 0, 4.0296035, 0, 0, 0, 1, -3.0845861, 0, -16.223812)
 
-[node name="terminal towers" parent="." unique_id=24247238 instance=ExtResource("4_x6ack")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -251.116, 0)
-
 [node name="terminal_ramp" parent="." unique_id=289102533 instance=ExtResource("5_6ev3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.676224, -1.2819645, -14.152138)
 
 [node name="terminal_fence" parent="." unique_id=1709295738 instance=ExtResource("7_maf8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.402273, -1.281951, -15.470836)
+
+[node name="terminal towers" parent="." unique_id=1974090063 instance=ExtResource("4_x6ack")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -251.185, 0)
+
+[node name="terminal_fish" parent="." unique_id=1055127049 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-48.29629, 0, 12.940957, 0, 50, 0, -12.940957, 0, -48.29629, 0, 368, 0)
