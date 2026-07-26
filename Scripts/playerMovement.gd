@@ -7,7 +7,7 @@ var lastWall
 var height: int = 999
 var sliding = false
 var CanRoll = false
-var score = 0
+var score: int = 0
 const baseWallrunTime = 0.9
 @export var maxHealth = 100
 var health: int = 100
@@ -94,6 +94,7 @@ func idle_state(delta: float) -> void:
 		return
 	
 	if height <= 0 and health >0:
+		winUI.add_score(score)
 		winUI.turn_visible()
 	var input_dir := Input.get_vector("moveLeft", "moveRight", "moveForwards", "moveBackwards")
 	if input_dir != Vector2.ZERO:
@@ -127,9 +128,11 @@ func falling_state(delta: float) -> void:
 	move_player()
 	lowestVelocity = min(lowestVelocity, velocity.y)
 	if rayCastDown.get_collider() != null and Input.is_action_just_pressed("sliding"):
-		if lowestVelocity < -10:
+		if lowestVelocity < -15:
 			lowestVelocity = lowestVelocity * 0.5
 			take_damage(abs(lowestVelocity))
+		else:
+			score += abs(lowestVelocity)
 		lowestVelocity = 0
 		if health <= 0:
 			deadUI.turn_visible()
@@ -139,8 +142,10 @@ func falling_state(delta: float) -> void:
 		stateMachine.change_state(stateMachine.playerState.ROLLING)
 		return
 	if is_on_floor():
-		if lowestVelocity < -5:
+		if lowestVelocity < -10:
 			take_damage(abs(lowestVelocity))
+		else:
+			score += abs(lowestVelocity)
 		lowestVelocity = 0
 		if health <= 0:
 			deadUI.turn_visible()
@@ -283,7 +288,7 @@ func dead_state():
 	velocity = Vector3(0,0,0)
 		
 func take_damage(velocity):
-	health = health - velocity
+	health = health - velocity * 0.8
 	
 func wall_run_time(velocity):
 	var time = 0
