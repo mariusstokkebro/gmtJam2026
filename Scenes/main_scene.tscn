@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cb0fr5gt0gov4" path="res://Models/terminal_fence.glb" id="7_maf8m"]
 [ext_resource type="PackedScene" uid="uid://5xffln2jnarf" path="res://Models/terminal_fish.glb" id="9_76v2p"]
 [ext_resource type="Script" uid="uid://g2eukot5kdps" path="res://Scripts/terminal_fish.gd" id="9_m1efj"]
+[ext_resource type="PackedScene" uid="uid://dblwgpcuhws22" path="res://Scenes/dead_ui.tscn" id="10_mai8y"]
 [ext_resource type="PackedScene" uid="uid://w8d8tjyvthrv" path="res://Models/terminal distantTower.glb" id="11_76v2p"]
+[ext_resource type="PackedScene" uid="uid://cdnnp1ecl582b" path="res://Scenes/win_ui.tscn" id="13_ioaeq"]
 
 [sub_resource type="Gradient" id="Gradient_d1h7h"]
 
@@ -76,11 +78,11 @@ transform = Transform3D(-0.46026722, 0.8855633, -0.06270245, -0.86602455, -0.432
 light_color = Color(1.7566079, 1.1980871, 0.7150419, 1)
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." unique_id=188544308 node_paths=PackedStringArray("deadUI") instance=ExtResource("1_52fb6")]
+[node name="CharacterBody3D" parent="." unique_id=188544308 node_paths=PackedStringArray("deadUI", "winUI") instance=ExtResource("1_52fb6")]
 transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -12.238766)
-maxHealth = 20
 WallRunSpeed = 10.0
 deadUI = NodePath("../DeadUI")
+winUI = NodePath("../Win_ui")
 
 [node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -16.12722)
@@ -1028,3 +1030,8 @@ transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -183.658
 
 [node name="terminal distantTower255" parent="." unique_id=68921276 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1331.4338, -500, -183.65857)
+
+[node name="Win_ui" parent="." unique_id=976927344 instance=ExtResource("13_ioaeq")]
+
+[node name="DeadUI" parent="." unique_id=663299374 instance=ExtResource("10_mai8y")]
+visible = false

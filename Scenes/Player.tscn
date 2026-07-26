@@ -9,10 +9,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
 
-[node name="Player" type="CharacterBody3D" unique_id=188544308 node_paths=PackedStringArray("rayCastFront", "rayCastMiddle", "head", "aimLook")]
+[node name="Player" type="CharacterBody3D" unique_id=188544308 node_paths=PackedStringArray("rayCastFront", "rayCastMiddle", "rayCastDown", "head", "aimLook")]
 script = ExtResource("1_rpqav")
 rayCastFront = NodePath("RayCastFrontBottom")
 rayCastMiddle = NodePath("RayCastFrontMiddle")
+rayCastDown = NodePath("RayCastDown")
 head = NodePath("Head")
 aimLook = NodePath("AimLook")
 
@@ -55,5 +56,8 @@ transform = Transform3D(-2.2575035e-08, 1.9274628e-10, -0.5, 0.3535534, 0.353553
 
 [node name="terminal_arm2" parent="." unique_id=786469154 instance=ExtResource("4_dewec")]
 transform = Transform3D(-1.5454312e-08, 1.5454312e-08, -0.5, 0.3535534, 0.3535534, 0, 0.3535534, -0.3535534, -2.1855694e-08, -0.5, 0.5, 0.1)
+
+[node name="RayCastDown" type="RayCast3D" parent="." unique_id=674106482]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.9213085, 0)
 
 [connection signal="timeout" from="WallRunTimer" to="." method="_on_wall_run_timer_timeout"]

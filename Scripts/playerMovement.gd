@@ -7,6 +7,7 @@ var lastWall
 var height: int = 999
 var sliding = false
 var CanRoll = false
+var score = 0
 const baseWallrunTime = 0.9
 @export var maxHealth = 100
 var health: int = 100
@@ -19,11 +20,14 @@ var health: int = 100
 const JUMP_VELOCITY = 4.5
 @export var rayCastFront: RayCast3D
 @export var rayCastMiddle: RayCast3D
+@export var rayCastDown: RayCast3D
 @export var deadUI: Control
+@export var winUI: Control
 @export var head: Node3D
 @export var aimLook: Node
 @onready var stateMachine = $StateMachine
 @onready var timer = $WallRunTimer
+
 
 func _ready() -> void:
 	health = maxHealth
@@ -80,11 +84,6 @@ func move_player() -> void:
 	
 
 func idle_state(delta: float) -> void:
-	if CanRoll and Input.is_action_just_pressed("sliding"):
-		lowestVelocity * 0.5
-		aimLook.set_camera_control(false)
-		stateMachine.change_state(stateMachine.playerState.ROLLING)
-		return
 	if !is_on_floor():
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
@@ -94,6 +93,8 @@ func idle_state(delta: float) -> void:
 		stateMachine.change_state(stateMachine.playerState.JUMPING)
 		return
 	
+	if height <= 0 and health >0:
+		winUI.turn_visible()
 	var input_dir := Input.get_vector("moveLeft", "moveRight", "moveForwards", "moveBackwards")
 	if input_dir != Vector2.ZERO:
 		stateMachine.change_state(stateMachine.playerState.RUNNING)
@@ -101,11 +102,6 @@ func idle_state(delta: float) -> void:
 		
 func running_state(delta:float) -> void:
 	move_player()
-	
-	if CanRoll and Input.is_action_just_pressed("sliding"):
-		lowestVelocity = lowestVelocity * 0.5
-		aimLook.set_camera_control(false)
-		stateMachine.change_state(stateMachine.playerState.ROLLING)
 	if !is_on_floor():
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
@@ -130,10 +126,24 @@ func running_state(delta:float) -> void:
 func falling_state(delta: float) -> void:
 	move_player()
 	lowestVelocity = min(lowestVelocity, velocity.y)
+	if rayCastDown.get_collider() != null and Input.is_action_just_pressed("sliding"):
+		if lowestVelocity < -10:
+			lowestVelocity = lowestVelocity * 0.5
+			take_damage(abs(lowestVelocity))
+		lowestVelocity = 0
+		if health <= 0:
+			stateMachine.change_state(stateMachine.playerState.DEAD)
+			return
+		aimLook.set_camera_control(false)
+		stateMachine.change_state(stateMachine.playerState.ROLLING)
+		return
 	if is_on_floor():
-		CanRoll = true
-		timer.wait_time = 0.5
-		timer.start()
+		if lowestVelocity < -5:
+			take_damage(abs(lowestVelocity))
+		lowestVelocity = 0
+		if health <= 0:
+			stateMachine.change_state(stateMachine.playerState.DEAD)
+			return
 		stateMachine.change_state(stateMachine.playerState.IDLE)
 		return
 		
@@ -258,7 +268,6 @@ func wallslide_state() -> void:
 	
 func rolling_state(delta: float) -> void:
 	head.rotation_degrees.x += -360.0 * delta
-	print(head.rotation_degrees.x)
 	if head.rotation_degrees.x <= -350:
 		head.rotation_degrees.x = 0
 		aimLook.set_camera_control(true)
@@ -269,9 +278,10 @@ func rolling_state(delta: float) -> void:
 		
 func dead_state():
 	health = 0
+	velocity = Vector3(0,0,0)
 		
 func take_damage(velocity):
-	health = health - velocity * 0.5
+	health = health - velocity
 	
 func wall_run_time(velocity):
 	var time = 0
@@ -286,12 +296,4 @@ func _on_wall_run_timer_timeout() -> void:
 	if stateMachine.currentState == stateMachine.playerState.WALLSLIDE:
 		sliding = true
 		
-	if stateMachine.currentState == stateMachine.playerState.IDLE or stateMachine.currentState == stateMachine.playerState.RUNNING:
-		CanRoll = false
-		if lowestVelocity < -15:
-			take_damage(abs(lowestVelocity))
-			if health <=0:
-				deadUI.turn_visible()
-				stateMachine.change_state(stateMachine.playerState.DEAD)
-		lowestVelocity = 0
 	
