@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0fr5gt0gov4" path="res://Models/terminal_fence.glb" id="7_maf8m"]
 [ext_resource type="PackedScene" uid="uid://5xffln2jnarf" path="res://Models/terminal_fish.glb" id="9_76v2p"]
 [ext_resource type="Script" uid="uid://g2eukot5kdps" path="res://Scripts/terminal_fish.gd" id="9_m1efj"]
+[ext_resource type="PackedScene" uid="uid://dblwgpcuhws22" path="res://Scenes/dead_ui.tscn" id="10_mai8y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -55,9 +56,11 @@ environment = SubResource("Environment_jv6wh")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, -12.061195)
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." unique_id=188544308 instance=ExtResource("1_52fb6")]
+[node name="CharacterBody3D" parent="." unique_id=188544308 node_paths=PackedStringArray("deadUI") instance=ExtResource("1_52fb6")]
 transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -12.238766)
+maxHealth = 20
 WallRunSpeed = 10.0
+deadUI = NodePath("../DeadUI")
 
 [node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -16.12722)
@@ -130,3 +133,9 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -251.185, 0)
 [node name="terminal_fish" parent="." unique_id=1055127049 instance=ExtResource("9_76v2p")]
 transform = Transform3D(-48.29629, 0, 12.940957, 0, 50, 0, -12.940957, 0, -48.29629, 0, 368, 0)
 script = ExtResource("9_m1efj")
+
+[node name="DeadUI" parent="." unique_id=663299374 instance=ExtResource("10_mai8y")]
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 2.0
+offset_bottom = 6.0

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dblwgpcuhws22"]
+
+[ext_resource type="Script" uid="uid://dein5rg5l2f0e" path="res://Scenes/dead_ui.gd" id="1_xg4rk"]
+
+[sub_resource type="FontFile" id="FontFile_3gngh"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = SubResource("FontFile_3gngh")
+font_size = 42
+
+[node name="DeadUI" type="Control" unique_id=663299374 node_paths=PackedStringArray("retryButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xg4rk")
+retryButton = NodePath("Retry")
+
+[node name="DiedText" type="Label" parent="." unique_id=1246495478]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 236.0
+offset_right = 667.0
+offset_bottom = 293.0
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="." unique_id=368525155]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 365.0
+offset_right = 599.0
+offset_bottom = 396.0
+text = "Retry"

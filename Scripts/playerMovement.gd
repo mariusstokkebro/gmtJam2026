@@ -19,12 +19,14 @@ var health: int = 100
 const JUMP_VELOCITY = 4.5
 @export var rayCastFront: RayCast3D
 @export var rayCastMiddle: RayCast3D
+@export var deadUI: Control
 @export var head: Node3D
 @export var aimLook: Node
 @onready var stateMachine = $StateMachine
 @onready var timer = $WallRunTimer
 
-
+func _ready() -> void:
+	health = maxHealth
 
 func _physics_process(delta: float) -> void:
 	height = (position.y * 2) + 999
@@ -57,6 +59,8 @@ func _physics_process(delta: float) -> void:
 		stateMachine.playerState.ROLLING:
 			rolling_state(delta)
 			
+		stateMachine.playerState.DEAD:
+			dead_state()
 		
 	move_and_slide()
 func apply_gravity(delta: float) -> void:
@@ -99,7 +103,7 @@ func running_state(delta:float) -> void:
 	move_player()
 	
 	if CanRoll and Input.is_action_just_pressed("sliding"):
-		lowestVelocity * 0.5
+		lowestVelocity = lowestVelocity * 0.5
 		aimLook.set_camera_control(false)
 		stateMachine.change_state(stateMachine.playerState.ROLLING)
 	if !is_on_floor():
@@ -263,6 +267,8 @@ func rolling_state(delta: float) -> void:
 		return
 	
 		
+func dead_state():
+	health = 0
 		
 func take_damage(velocity):
 	health = health - velocity * 0.5
@@ -284,5 +290,8 @@ func _on_wall_run_timer_timeout() -> void:
 		CanRoll = false
 		if lowestVelocity < -15:
 			take_damage(abs(lowestVelocity))
+			if health <=0:
+				deadUI.turn_visible()
+				stateMachine.change_state(stateMachine.playerState.DEAD)
 		lowestVelocity = 0
 	
