@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://c6max0841vgoh"]
 
 [ext_resource type="PackedScene" uid="uid://30va6cfbn3d3" path="res://Scenes/Player.tscn" id="1_52fb6"]
-[ext_resource type="PackedScene" uid="uid://dvoqhn6ajso2v" path="res://Scenes/wall.tscn" id="2_6l7je"]
 [ext_resource type="Texture2D" uid="uid://exwfci02kuju" path="res://Models/terminal_fence_360_F_294470248_REyNa0YLS2e9PNFsEQLmNS9xsHor4wLM.jpg" id="2_m1efj"]
-[ext_resource type="PackedScene" uid="uid://5ee267s21pqd" path="res://Scenes/propper_wall.tscn" id="3_jv6wh"]
+[ext_resource type="Texture2D" uid="uid://baev32bvod4te" path="res://Models/Concrete-Texture-1.jpg" id="3_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://v35wfoo2h8ih" path="res://Models/terminal towers.glb" id="4_x6ack"]
 [ext_resource type="PackedScene" uid="uid://c3kpn6im8ye7x" path="res://Models/terminal_ramp.glb" id="5_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://booik12enhwur" path="res://Scenes/ui.tscn" id="5_iacmt"]
@@ -12,6 +11,7 @@
 [ext_resource type="Script" uid="uid://g2eukot5kdps" path="res://Scripts/terminal_fish.gd" id="9_m1efj"]
 [ext_resource type="PackedScene" uid="uid://dblwgpcuhws22" path="res://Scenes/dead_ui.tscn" id="10_mai8y"]
 [ext_resource type="PackedScene" uid="uid://w8d8tjyvthrv" path="res://Models/terminal distantTower.glb" id="11_76v2p"]
+[ext_resource type="AudioStream" uid="uid://c0nhudxebbji4" path="res://sound/1000 Handz - GT3.mp3" id="12_drdnd"]
 [ext_resource type="PackedScene" uid="uid://cdnnp1ecl582b" path="res://Scenes/win_ui.tscn" id="13_ioaeq"]
 
 [sub_resource type="Gradient" id="Gradient_d1h7h"]
@@ -43,27 +43,18 @@ background_mode = 2
 sky = SubResource("Sky_6l7je")
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
-size = Vector3(1, 0.064453125, 0.9633789)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(4.164186, 1, 2.093277)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mai8y"]
-load_path = "res://.godot/imported/terminal towers_gravel-none-c8qf54.jpg-91d51694ec202ff91aa61066a42922b6.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1efj"]
-albedo_texture = SubResource("CompressedTexture2D_mai8y")
-uv1_scale = Vector3(25, 25, 25)
+albedo_texture = ExtResource("3_ioaeq")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mai8y"]
 albedo_texture = ExtResource("2_m1efj")
-uv1_scale = Vector3(5, 5, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
-size = Vector3(6.536133, 1, 8.771484)
+uv1_scale = Vector3(2, 2, 2)
 
 [node name="MainScene" type="Node3D" unique_id=928942909]
 
@@ -79,26 +70,10 @@ light_color = Color(1.7566079, 1.1980871, 0.7150419, 1)
 shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=188544308 node_paths=PackedStringArray("deadUI", "winUI") instance=ExtResource("1_52fb6")]
-transform = Transform3D(0.0069892593, 0, 0.99997556, 0, 1, 0, -0.99997556, 0, 0.0069892593, 1.3270069, 1.6588607, -12.238766)
+transform = Transform3D(0.99997556, 0, -0.006989303, 0, 1, 0, 0.006989303, 0, 0.99997556, 1.3270069, 1.6588607, -12.238766)
 WallRunSpeed = 10.0
 deadUI = NodePath("../DeadUI")
 winUI = NodePath("../Win_ui")
-
-[node name="box" type="MeshInstance3D" parent="." unique_id=24979719]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595205, 0.7187997, -16.12722)
-mesh = SubResource("BoxMesh_g4v7s")
-
-[node name="floor" type="StaticBody3D" parent="." unique_id=577310504]
-transform = Transform3D(1, 0, 0, 0, 0.24819738, 0, 0, 0, 1, -3.7226217, 0.20503473, -12.061195)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1337069603]
-transform = Transform3D(2.7668257, 0, 0, 0, 0.9999958, 0, 0, 0, 3.6688886, -0.19444036, -1.1677246, 0.08551657)
-shape = SubResource("BoxShape3D_g4v7s")
-debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
-
-[node name="mesh" type="MeshInstance3D" parent="floor" unique_id=1102990220]
-transform = Transform3D(6.13449, 0, 0, 0, 0.99999994, 0, 0, 0, 3.6689274, 0, -0.9282236, 0)
-mesh = SubResource("PlaneMesh_g4v7s")
 
 [node name="floor3" type="StaticBody3D" parent="." unique_id=849073848]
 transform = Transform3D(85.894455, 0, 0, 0, 0.24819738, 0, 0, 0, 170.7636, 121.27738, -500.79495, -95.061195)
@@ -109,7 +84,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(0.114371635, 0.59345055, 0.7144589, 0.41960785)
 
 [node name="mesh" type="MeshInstance3D" parent="floor3" unique_id=2130926371]
-transform = Transform3D(19.01692, 0, 0, 0, 0.9999998, 0, 0, 0, 8.8054285, 0, -0.92822266, 0)
+transform = Transform3D(19.01692, 0, 0, 0, 0.99999976, 0, 0, 0, 8.805429, 0, -0.92822266, 0)
 mesh = SubResource("PlaneMesh_g4v7s")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1efj")
 
@@ -131,907 +106,1372 @@ transform = Transform3D(19.01692, 0, 0, 0, 0.9999999, 0, 0, 0, 8.805428, 0, -0.9
 mesh = SubResource("PlaneMesh_g4v7s")
 surface_material_override/0 = SubResource("StandardMaterial3D_mai8y")
 
-[node name="wall" parent="." unique_id=303465330 instance=ExtResource("2_6l7je")]
-transform = Transform3D(10.684522, 0, 0, 0, -2.6927058e-09, 3.4011588, 0, -0.061601926, -1.4866937e-07, 0.018498898, -3.5347228, 3.6289678)
-
-[node name="floor2" type="StaticBody3D" parent="." unique_id=394676473]
-transform = Transform3D(1, 0, 0, 0, 0.061601937, 0, 0, 0, 1, 20.898842, -1.021688, -12.061195)
-
-[node name="mesh" type="MeshInstance3D" parent="floor2" unique_id=109058270]
-transform = Transform3D(2.766865, 0, 0, 0, 1, 0, 0, 0, 3.6689277, 0, -4.156466, 0)
-mesh = SubResource("PlaneMesh_g4v7s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2" unique_id=647324077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18310547, 0, 0.50390625)
-shape = SubResource("BoxShape3D_yf5fn")
-
-[node name="PropperWall2" parent="." unique_id=13714695 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(6.917065, 0, 0, 0, 4.0296035, 0, 0, 0, 1, -3.0845861, 0, -16.223812)
-
-[node name="terminal_ramp" parent="." unique_id=289102533 instance=ExtResource("5_6ev3c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.676224, -1.2819645, -14.152138)
-
-[node name="terminal_fish" parent="." unique_id=1055127049 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-48.29629, 0, 12.940957, 0, 50, 0, -12.940957, 0, -48.29629, 0, 368, 0)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish2" parent="." unique_id=207564344 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-7.500001, 0, -12.990381, 0, 15, 0, 12.990381, 0, -7.500001, 909.1001, 368, -179.90663)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish3" parent="." unique_id=1189156615 instance=ExtResource("9_76v2p")]
-transform = Transform3D(7.764572, 0, 28.977774, 0, 30, 0, -28.977774, 0, 7.764572, -360.8999, 368, -1000.9066)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish4" parent="." unique_id=1573702573 instance=ExtResource("9_76v2p")]
-transform = Transform3D(24.148146, 0, -6.470478, 0, 25, 0, 6.470478, 0, 24.148146, 476.1001, 368, -561.9066)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish5" parent="." unique_id=160804940 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-17.677668, 0, 17.677673, 0, 25, 0, -17.677673, 0, -17.677668, -357.8999, 498.00293, 409.09338)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish6" parent="." unique_id=319519629 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-17.677673, 0, -17.677668, 0, 25, 0, 17.677668, 0, -17.677673, 919.1001, 313.01392, 613.0934)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish7" parent="." unique_id=1200621199 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-28.977776, 0, -7.764568, 0, 30, 0, 7.764568, 0, -28.977776, 486.39252, 409.67657, 1020.0934)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish8" parent="." unique_id=1067626014 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-7.764564, 0, 28.977776, 0, 30, 0, -28.977776, 0, -7.764564, -1012.8999, 368, 1.0933838)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish9" parent="." unique_id=421119817 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-25.000004, 0, 6.67572e-06, 0, 25.000008, 0, -6.67572e-06, 0, -25.000004, -1219.8999, 162.98962, 810.0934)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish10" parent="." unique_id=690778684 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-24.999983, 0, 43.30128, 0, 50, 0, -43.30128, 0, -24.999983, 1559.1001, 368, 1004.0934)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish11" parent="." unique_id=758824348 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-7.764564, 0, 28.977776, 0, 30, 0, -28.977776, 0, -7.764564, 1132.1001, 162.98962, -972.9066)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish12" parent="." unique_id=302281293 instance=ExtResource("9_76v2p")]
-transform = Transform3D(48.296295, 0, 12.940939, 0, 50, 0, -12.940939, 0, 48.296295, 256.67725, 498.00293, -1405.8428)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish13" parent="." unique_id=1681386687 instance=ExtResource("9_76v2p")]
-transform = Transform3D(12.990379, 0, -7.500004, 0, 15, 0, 7.500004, 0, 12.990379, -1214.3228, 162.98962, -1418.8428)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish14" parent="." unique_id=1282605902 instance=ExtResource("9_76v2p")]
-transform = Transform3D(43.24144, 0, 25.103346, 0, 50, 0, -25.103346, 0, 43.24144, -1227.3228, 162.98962, -797.8428)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish15" parent="." unique_id=1359631673 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-21.680431, 0, 12.448257, 0, 25.000008, 0, -12.448257, 0, -21.680431, -581.32275, 368, 1214.1572)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fish16" parent="." unique_id=1027346443 instance=ExtResource("9_76v2p")]
-transform = Transform3D(-7.468952, 0, -13.008257, 0, 15, 0, 13.008257, 0, -7.468952, 485.14404, 162.98962, 214.79053)
-script = ExtResource("9_m1efj")
-
-[node name="terminal_fence" parent="." unique_id=1976103309 instance=ExtResource("7_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.55181, -0.99087304, -15.682114)
-
 [node name="terminal towers" parent="." unique_id=1974090063 instance=ExtResource("4_x6ack")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -251.035, 0)
 
-[node name="terminal distantTower" parent="." unique_id=731371493 instance=ExtResource("11_76v2p")]
+[node name="fish" type="Node" parent="." unique_id=1369243582]
+
+[node name="terminal_fish" parent="fish" unique_id=1055127049 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-48.29629, 0, 12.940957, 0, 50, 0, -12.940957, 0, -48.29629, 0, 368, 0)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish2" parent="fish" unique_id=207564344 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-7.500001, 0, -12.990381, 0, 15, 0, 12.990381, 0, -7.500001, 909.1001, 368, -179.90663)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish3" parent="fish" unique_id=1189156615 instance=ExtResource("9_76v2p")]
+transform = Transform3D(7.764572, 0, 28.977774, 0, 30, 0, -28.977774, 0, 7.764572, -360.8999, 368, -1000.9066)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish4" parent="fish" unique_id=1573702573 instance=ExtResource("9_76v2p")]
+transform = Transform3D(24.148146, 0, -6.470478, 0, 25, 0, 6.470478, 0, 24.148146, 476.1001, 368, -561.9066)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish5" parent="fish" unique_id=160804940 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-17.677668, 0, 17.677673, 0, 25, 0, -17.677673, 0, -17.677668, -357.8999, 498.00293, 409.09338)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish6" parent="fish" unique_id=319519629 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-17.677673, 0, -17.677668, 0, 25, 0, 17.677668, 0, -17.677673, 919.1001, 313.01392, 613.0934)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish7" parent="fish" unique_id=1200621199 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-28.977776, 0, -7.764568, 0, 30, 0, 7.764568, 0, -28.977776, 486.39252, 409.67657, 1020.0934)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish8" parent="fish" unique_id=1067626014 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-7.764564, 0, 28.977776, 0, 30, 0, -28.977776, 0, -7.764564, -1012.8999, 368, 1.0933838)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish9" parent="fish" unique_id=421119817 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-25.000004, 0, 6.67572e-06, 0, 25.000008, 0, -6.67572e-06, 0, -25.000004, -1219.8999, 162.98962, 810.0934)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish10" parent="fish" unique_id=690778684 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-24.999983, 0, 43.30128, 0, 50, 0, -43.30128, 0, -24.999983, 1559.1001, 368, 1004.0934)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish11" parent="fish" unique_id=758824348 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-7.764564, 0, 28.977776, 0, 30, 0, -28.977776, 0, -7.764564, 1132.1001, 162.98962, -972.9066)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish12" parent="fish" unique_id=302281293 instance=ExtResource("9_76v2p")]
+transform = Transform3D(48.296295, 0, 12.940939, 0, 50, 0, -12.940939, 0, 48.296295, 256.67725, 498.00293, -1405.8428)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish13" parent="fish" unique_id=1681386687 instance=ExtResource("9_76v2p")]
+transform = Transform3D(12.990379, 0, -7.500004, 0, 15, 0, 7.500004, 0, 12.990379, -1214.3228, 162.98962, -1418.8428)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish14" parent="fish" unique_id=1282605902 instance=ExtResource("9_76v2p")]
+transform = Transform3D(43.24144, 0, 25.103346, 0, 50, 0, -25.103346, 0, 43.24144, -1227.3228, 162.98962, -797.8428)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish15" parent="fish" unique_id=1359631673 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-21.680431, 0, 12.448257, 0, 25.000008, 0, -12.448257, 0, -21.680431, -581.32275, 368, 1214.1572)
+script = ExtResource("9_m1efj")
+
+[node name="terminal_fish16" parent="fish" unique_id=1027346443 instance=ExtResource("9_76v2p")]
+transform = Transform3D(-7.468952, 0, -13.008257, 0, 15, 0, 13.008257, 0, -7.468952, 485.14404, 162.98962, 214.79053)
+script = ExtResource("9_m1efj")
+
+[node name="other towers" type="Node" parent="." unique_id=617712017]
+
+[node name="terminal distantTower" parent="other towers" unique_id=731371493 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 56.213867, -500, -359)
 
-[node name="terminal distantTower2" parent="." unique_id=463682011 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower2" parent="other towers" unique_id=463682011 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 269.21387, -500, -359)
 
-[node name="terminal distantTower3" parent="." unique_id=755470634 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower3" parent="other towers" unique_id=755470634 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 480.21387, -500, -359)
 
-[node name="terminal distantTower4" parent="." unique_id=1254815285 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower4" parent="other towers" unique_id=1254815285 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, -359)
 
-[node name="terminal distantTower5" parent="." unique_id=256021737 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower5" parent="other towers" unique_id=256021737 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, -359)
 
-[node name="terminal distantTower6" parent="." unique_id=2029992432 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower6" parent="other towers" unique_id=2029992432 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -570.78613, -500, -359)
 
-[node name="terminal distantTower7" parent="." unique_id=674326211 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower7" parent="other towers" unique_id=674326211 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 75, 0, -35.35534, 0, 35.35534, -359.78613, -500, -359)
 
-[node name="terminal distantTower8" parent="." unique_id=188104678 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower8" parent="other towers" unique_id=188104678 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -146.78613, -500, -359)
 
-[node name="terminal distantTower10" parent="." unique_id=1548763423 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower10" parent="other towers" unique_id=1548763423 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, -359)
 
-[node name="terminal distantTower11" parent="." unique_id=1647488120 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower11" parent="other towers" unique_id=1647488120 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -1211.7861, -500, -359)
 
-[node name="terminal distantTower12" parent="." unique_id=1950156434 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower12" parent="other towers" unique_id=1950156434 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -998.78613, -500, -359)
 
-[node name="terminal distantTower16" parent="." unique_id=777705401 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower16" parent="other towers" unique_id=777705401 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -359)
 
-[node name="terminal distantTower17" parent="." unique_id=1537636793 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower17" parent="other towers" unique_id=1537636793 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -359)
 
-[node name="terminal distantTower20" parent="." unique_id=2092902684 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower20" parent="other towers" unique_id=2092902684 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 907.43384, -500, -359)
 
-[node name="terminal distantTower21" parent="." unique_id=11179282 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower21" parent="other towers" unique_id=11179282 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1118.4338, -500, -359)
 
-[node name="terminal distantTower22" parent="." unique_id=510728084 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower22" parent="other towers" unique_id=510728084 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, -359)
 
-[node name="terminal distantTower9" parent="." unique_id=1673112919 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower9" parent="other towers" unique_id=1673112919 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 56.213867, -500, -567)
 
-[node name="terminal distantTower13" parent="." unique_id=181769323 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower13" parent="other towers" unique_id=181769323 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, -567)
 
-[node name="terminal distantTower14" parent="." unique_id=1159687658 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower14" parent="other towers" unique_id=1159687658 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, -567)
 
-[node name="terminal distantTower15" parent="." unique_id=1765698835 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower15" parent="other towers" unique_id=1765698835 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 693.21387, -500, -567)
 
-[node name="terminal distantTower18" parent="." unique_id=407876051 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower18" parent="other towers" unique_id=407876051 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -783.78613, -500, -567)
 
-[node name="terminal distantTower19" parent="." unique_id=1443018390 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower19" parent="other towers" unique_id=1443018390 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -570.78613, -500, -567)
 
-[node name="terminal distantTower23" parent="." unique_id=864261317 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower23" parent="other towers" unique_id=864261317 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -359.78613, -500, -567)
 
-[node name="terminal distantTower24" parent="." unique_id=2007415853 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower24" parent="other towers" unique_id=2007415853 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -146.78613, -500, -567)
 
-[node name="terminal distantTower25" parent="." unique_id=1335890028 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower25" parent="other towers" unique_id=1335890028 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, -567)
 
-[node name="terminal distantTower26" parent="." unique_id=688732979 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower26" parent="other towers" unique_id=688732979 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 150, 0, -35.35534, 0, 35.35534, -1211.7861, -500, -567)
 
-[node name="terminal distantTower27" parent="." unique_id=446600996 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower27" parent="other towers" unique_id=446600996 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -998.78613, -500, -567)
 
-[node name="terminal distantTower28" parent="." unique_id=730904499 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower28" parent="other towers" unique_id=730904499 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -567)
 
-[node name="terminal distantTower29" parent="." unique_id=1538200386 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower29" parent="other towers" unique_id=1538200386 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -567)
 
-[node name="terminal distantTower30" parent="." unique_id=1128681296 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower30" parent="other towers" unique_id=1128681296 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, -567)
 
-[node name="terminal distantTower31" parent="." unique_id=878318247 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower31" parent="other towers" unique_id=878318247 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1118.4338, -500, -567)
 
-[node name="terminal distantTower32" parent="." unique_id=1414404941 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower32" parent="other towers" unique_id=1414404941 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1331.4338, -500, -567)
 
-[node name="terminal distantTower33" parent="." unique_id=1163915845 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower33" parent="other towers" unique_id=1163915845 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 56.213867, -500, -782)
 
-[node name="terminal distantTower34" parent="." unique_id=1446417914 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower34" parent="other towers" unique_id=1446417914 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, -782)
 
-[node name="terminal distantTower35" parent="." unique_id=2013699100 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower35" parent="other towers" unique_id=2013699100 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, -782)
 
-[node name="terminal distantTower36" parent="." unique_id=1203224024 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower36" parent="other towers" unique_id=1203224024 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 693.21387, -500, -782)
 
-[node name="terminal distantTower37" parent="." unique_id=1191299980 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower37" parent="other towers" unique_id=1191299980 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -783.78613, -500, -782)
 
-[node name="terminal distantTower38" parent="." unique_id=642106880 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower38" parent="other towers" unique_id=642106880 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -570.78613, -500, -782)
 
-[node name="terminal distantTower39" parent="." unique_id=1191999121 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower39" parent="other towers" unique_id=1191999121 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -359.78613, -500, -782)
 
-[node name="terminal distantTower40" parent="." unique_id=1503646278 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower40" parent="other towers" unique_id=1503646278 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -146.78613, -500, -782)
 
-[node name="terminal distantTower41" parent="." unique_id=679263775 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower41" parent="other towers" unique_id=679263775 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -1422.7861, -500, -782)
 
-[node name="terminal distantTower42" parent="." unique_id=1650895754 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower42" parent="other towers" unique_id=1650895754 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, -782)
 
-[node name="terminal distantTower43" parent="." unique_id=860332712 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower43" parent="other towers" unique_id=860332712 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -998.78613, -500, -782)
 
-[node name="terminal distantTower44" parent="." unique_id=113115008 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower44" parent="other towers" unique_id=113115008 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1546.4338, -500, -782)
 
-[node name="terminal distantTower45" parent="." unique_id=2062245986 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower45" parent="other towers" unique_id=2062245986 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -782)
 
-[node name="terminal distantTower46" parent="." unique_id=1538523661 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower46" parent="other towers" unique_id=1538523661 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 907.43384, -500, -782)
 
-[node name="terminal distantTower47" parent="." unique_id=1621625644 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower47" parent="other towers" unique_id=1621625644 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -782)
 
-[node name="terminal distantTower48" parent="." unique_id=1751923052 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower48" parent="other towers" unique_id=1751923052 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1331.4338, -500, -782)
 
-[node name="terminal distantTower49" parent="." unique_id=616152178 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower49" parent="other towers" unique_id=616152178 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 56.213867, -500, -988)
 
-[node name="terminal distantTower50" parent="." unique_id=214988781 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower50" parent="other towers" unique_id=214988781 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 269.21387, -500, -988)
 
-[node name="terminal distantTower51" parent="." unique_id=1972361149 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower51" parent="other towers" unique_id=1972361149 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, -988)
 
-[node name="terminal distantTower52" parent="." unique_id=1912165302 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower52" parent="other towers" unique_id=1912165302 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, -988)
 
-[node name="terminal distantTower53" parent="." unique_id=1945515582 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower53" parent="other towers" unique_id=1945515582 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, -988)
 
-[node name="terminal distantTower54" parent="." unique_id=908724362 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower54" parent="other towers" unique_id=908724362 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 150, 0, -35.35534, 0, 35.35534, -570.78613, -500, -988)
 
-[node name="terminal distantTower55" parent="." unique_id=1033766943 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower55" parent="other towers" unique_id=1033766943 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -359.78613, -500, -988)
 
-[node name="terminal distantTower56" parent="." unique_id=277154818 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower56" parent="other towers" unique_id=277154818 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -146.78613, -500, -988)
 
-[node name="terminal distantTower57" parent="." unique_id=451336078 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower57" parent="other towers" unique_id=451336078 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, -988)
 
-[node name="terminal distantTower58" parent="." unique_id=317992065 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower58" parent="other towers" unique_id=317992065 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, -988)
 
-[node name="terminal distantTower59" parent="." unique_id=1252756893 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower59" parent="other towers" unique_id=1252756893 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -998.78613, -500, -988)
 
-[node name="terminal distantTower60" parent="." unique_id=523800373 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower60" parent="other towers" unique_id=523800373 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1546.4338, -500, -988)
 
-[node name="terminal distantTower61" parent="." unique_id=816336150 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower61" parent="other towers" unique_id=816336150 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -988)
 
-[node name="terminal distantTower62" parent="." unique_id=1632595877 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower62" parent="other towers" unique_id=1632595877 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 200, 0, -35.35534, 0, 35.35534, 907.43384, -500, -988)
 
-[node name="terminal distantTower63" parent="." unique_id=1590373440 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower63" parent="other towers" unique_id=1590373440 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -988)
 
-[node name="terminal distantTower64" parent="." unique_id=1699830731 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower64" parent="other towers" unique_id=1699830731 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, -988)
 
-[node name="terminal distantTower65" parent="." unique_id=523105974 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower65" parent="other towers" unique_id=523105974 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 56.213867, -500, -1196.8285)
 
-[node name="terminal distantTower66" parent="." unique_id=25242808 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower66" parent="other towers" unique_id=25242808 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 269.21387, -500, -1196.8285)
 
-[node name="terminal distantTower67" parent="." unique_id=633895031 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower67" parent="other towers" unique_id=633895031 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, -1196.8285)
 
-[node name="terminal distantTower68" parent="." unique_id=1883636216 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower68" parent="other towers" unique_id=1883636216 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, -1196.8285)
 
-[node name="terminal distantTower69" parent="." unique_id=1220978150 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower69" parent="other towers" unique_id=1220978150 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -783.78613, -500, -1196.8285)
 
-[node name="terminal distantTower70" parent="." unique_id=254481077 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower70" parent="other towers" unique_id=254481077 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -570.78613, -500, -1196.8285)
 
-[node name="terminal distantTower71" parent="." unique_id=710389026 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower71" parent="other towers" unique_id=710389026 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -359.78613, -500, -1196.8285)
 
-[node name="terminal distantTower72" parent="." unique_id=1462327343 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower72" parent="other towers" unique_id=1462327343 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -146.78613, -500, -1196.8285)
 
-[node name="terminal distantTower73" parent="." unique_id=419717949 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower73" parent="other towers" unique_id=419717949 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, -1196.8285)
 
-[node name="terminal distantTower74" parent="." unique_id=174160698 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower74" parent="other towers" unique_id=174160698 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -1211.7861, -500, -1196.8285)
 
-[node name="terminal distantTower75" parent="." unique_id=1127098268 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower75" parent="other towers" unique_id=1127098268 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -998.78613, -500, -1196.8285)
 
-[node name="terminal distantTower76" parent="." unique_id=1600437179 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower76" parent="other towers" unique_id=1600437179 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -1196.8285)
 
-[node name="terminal distantTower77" parent="." unique_id=420061119 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower77" parent="other towers" unique_id=420061119 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -1196.8285)
 
-[node name="terminal distantTower78" parent="." unique_id=985012254 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower78" parent="other towers" unique_id=985012254 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 907.43384, -500, -1196.8285)
 
-[node name="terminal distantTower79" parent="." unique_id=251832854 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower79" parent="other towers" unique_id=251832854 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1118.4338, -500, -1196.8285)
 
-[node name="terminal distantTower80" parent="." unique_id=1632805325 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower80" parent="other towers" unique_id=1632805325 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, -1196.8285)
 
-[node name="terminal distantTower81" parent="." unique_id=624214716 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower81" parent="other towers" unique_id=624214716 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 56.213867, -500, -1398.0168)
 
-[node name="terminal distantTower82" parent="." unique_id=1072541248 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower82" parent="other towers" unique_id=1072541248 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, -1398.0168)
 
-[node name="terminal distantTower83" parent="." unique_id=1094057377 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower83" parent="other towers" unique_id=1094057377 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 480.21387, -500, -1398.0168)
 
-[node name="terminal distantTower84" parent="." unique_id=1640612757 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower84" parent="other towers" unique_id=1640612757 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, -1398.0168)
 
-[node name="terminal distantTower85" parent="." unique_id=1938656577 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower85" parent="other towers" unique_id=1938656577 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, -1398.0168)
 
-[node name="terminal distantTower86" parent="." unique_id=221993382 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower86" parent="other towers" unique_id=221993382 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -570.78613, -500, -1398.0168)
 
-[node name="terminal distantTower87" parent="." unique_id=1633989950 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower87" parent="other towers" unique_id=1633989950 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -359.78613, -500, -1398.0168)
 
-[node name="terminal distantTower88" parent="." unique_id=384485449 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower88" parent="other towers" unique_id=384485449 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -146.78613, -500, -1398.0168)
 
-[node name="terminal distantTower89" parent="." unique_id=763205097 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower89" parent="other towers" unique_id=763205097 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -1422.7861, -500, -1398.0168)
 
-[node name="terminal distantTower90" parent="." unique_id=446971324 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower90" parent="other towers" unique_id=446971324 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -1211.7861, -500, -1398.0168)
 
-[node name="terminal distantTower91" parent="." unique_id=1362062302 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower91" parent="other towers" unique_id=1362062302 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 100, 0, -35.35534, 0, 35.35534, -998.78613, -500, -1398.0168)
 
-[node name="terminal distantTower92" parent="." unique_id=1679554212 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower92" parent="other towers" unique_id=1679554212 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -1398.0168)
 
-[node name="terminal distantTower93" parent="." unique_id=169122130 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower93" parent="other towers" unique_id=169122130 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 200, 0, -35.35534, 0, 35.35534, 1750.1688, -500, -1398.0168)
 
-[node name="terminal distantTower94" parent="." unique_id=707722646 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower94" parent="other towers" unique_id=707722646 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 907.43384, -500, -1398.0168)
 
-[node name="terminal distantTower95" parent="." unique_id=1309437509 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower95" parent="other towers" unique_id=1309437509 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -1398.0168)
 
-[node name="terminal distantTower96" parent="." unique_id=1914046139 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower96" parent="other towers" unique_id=1914046139 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1331.4338, -500, -1398.0168)
 
-[node name="terminal distantTower97" parent="." unique_id=1621637971 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower97" parent="other towers" unique_id=1621637971 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 56.213867, -500, -1596.6586)
 
-[node name="terminal distantTower98" parent="." unique_id=1175078007 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower98" parent="other towers" unique_id=1175078007 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, -1596.6586)
 
-[node name="terminal distantTower99" parent="." unique_id=1975888329 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower99" parent="other towers" unique_id=1975888329 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, -1596.6586)
 
-[node name="terminal distantTower100" parent="." unique_id=993971894 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower100" parent="other towers" unique_id=993971894 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 693.21387, -500, -1596.6586)
 
-[node name="terminal distantTower101" parent="." unique_id=1218153586 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower101" parent="other towers" unique_id=1218153586 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, -1596.6586)
 
-[node name="terminal distantTower102" parent="." unique_id=1926692110 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower102" parent="other towers" unique_id=1926692110 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 150, 0, -35.35534, 0, 35.35534, -570.78613, -500, -1596.6586)
 
-[node name="terminal distantTower103" parent="." unique_id=738865279 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower103" parent="other towers" unique_id=738865279 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -359.78613, -500, -1596.6586)
 
-[node name="terminal distantTower104" parent="." unique_id=1476914646 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower104" parent="other towers" unique_id=1476914646 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -146.78613, -500, -1596.6586)
 
-[node name="terminal distantTower105" parent="." unique_id=2008943484 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower105" parent="other towers" unique_id=2008943484 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, -1596.6586)
 
-[node name="terminal distantTower106" parent="." unique_id=767790942 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower106" parent="other towers" unique_id=767790942 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, -1596.6586)
 
-[node name="terminal distantTower107" parent="." unique_id=1293484558 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower107" parent="other towers" unique_id=1293484558 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -998.78613, -500, -1596.6586)
 
-[node name="terminal distantTower108" parent="." unique_id=1555611050 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower108" parent="other towers" unique_id=1555611050 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -1596.6586)
 
-[node name="terminal distantTower109" parent="." unique_id=1389018101 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower109" parent="other towers" unique_id=1389018101 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1750.1688, -500, -1596.6586)
 
-[node name="terminal distantTower110" parent="." unique_id=1646973791 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower110" parent="other towers" unique_id=1646973791 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, -1596.6586)
 
-[node name="terminal distantTower111" parent="." unique_id=1335658748 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower111" parent="other towers" unique_id=1335658748 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -1596.6586)
 
-[node name="terminal distantTower112" parent="." unique_id=490959173 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower112" parent="other towers" unique_id=490959173 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1331.4338, -500, -1596.6586)
 
-[node name="terminal distantTower113" parent="." unique_id=792690129 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower113" parent="other towers" unique_id=792690129 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 56.213867, -500, 1443)
 
-[node name="terminal distantTower114" parent="." unique_id=1109633295 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower114" parent="other towers" unique_id=1109633295 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, 1443)
 
-[node name="terminal distantTower115" parent="." unique_id=384322196 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower115" parent="other towers" unique_id=384322196 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 480.21387, -500, 1443)
 
-[node name="terminal distantTower116" parent="." unique_id=397454918 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower116" parent="other towers" unique_id=397454918 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, 1443)
 
-[node name="terminal distantTower117" parent="." unique_id=1598096955 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower117" parent="other towers" unique_id=1598096955 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, 1443)
 
-[node name="terminal distantTower118" parent="." unique_id=1245874009 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower118" parent="other towers" unique_id=1245874009 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -570.78613, -500, 1443)
 
-[node name="terminal distantTower119" parent="." unique_id=1325349434 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower119" parent="other towers" unique_id=1325349434 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -359.78613, -500, 1443)
 
-[node name="terminal distantTower120" parent="." unique_id=1517011356 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower120" parent="other towers" unique_id=1517011356 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -146.78613, -500, 1443)
 
-[node name="terminal distantTower121" parent="." unique_id=1917899497 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower121" parent="other towers" unique_id=1917899497 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -1422.7861, -500, 1443)
 
-[node name="terminal distantTower122" parent="." unique_id=1215026014 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower122" parent="other towers" unique_id=1215026014 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, 1443)
 
-[node name="terminal distantTower123" parent="." unique_id=1078234465 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower123" parent="other towers" unique_id=1078234465 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -998.78613, -500, 1443)
 
-[node name="terminal distantTower124" parent="." unique_id=308255100 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower124" parent="other towers" unique_id=308255100 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1546.4338, -500, 1443)
 
-[node name="terminal distantTower125" parent="." unique_id=1190415240 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower125" parent="other towers" unique_id=1190415240 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1750.1688, -500, 1443)
 
-[node name="terminal distantTower126" parent="." unique_id=978026999 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower126" parent="other towers" unique_id=978026999 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 150, 0, -35.35534, 0, 35.35534, 907.43384, -500, 1443)
 
-[node name="terminal distantTower127" parent="." unique_id=467302359 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower127" parent="other towers" unique_id=467302359 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, 1443)
 
-[node name="terminal distantTower128" parent="." unique_id=180904199 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower128" parent="other towers" unique_id=180904199 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, 1443)
 
-[node name="terminal distantTower129" parent="." unique_id=1294963014 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower129" parent="other towers" unique_id=1294963014 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 56.213867, -500, 1235)
 
-[node name="terminal distantTower130" parent="." unique_id=254786113 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower130" parent="other towers" unique_id=254786113 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 269.21387, -500, 1235)
 
-[node name="terminal distantTower131" parent="." unique_id=1791702843 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower131" parent="other towers" unique_id=1791702843 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, 1235)
 
-[node name="terminal distantTower132" parent="." unique_id=488836864 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower132" parent="other towers" unique_id=488836864 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, 1235)
 
-[node name="terminal distantTower133" parent="." unique_id=626762918 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower133" parent="other towers" unique_id=626762918 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, 1235)
 
-[node name="terminal distantTower134" parent="." unique_id=1582428015 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower134" parent="other towers" unique_id=1582428015 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -570.78613, -500, 1235)
 
-[node name="terminal distantTower135" parent="." unique_id=2105451707 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower135" parent="other towers" unique_id=2105451707 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -359.78613, -500, 1235)
 
-[node name="terminal distantTower136" parent="." unique_id=700341783 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower136" parent="other towers" unique_id=700341783 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -146.78613, -500, 1235)
 
-[node name="terminal distantTower137" parent="." unique_id=1264813849 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower137" parent="other towers" unique_id=1264813849 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, 1235)
 
-[node name="terminal distantTower138" parent="." unique_id=721917255 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower138" parent="other towers" unique_id=721917255 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, 1235)
 
-[node name="terminal distantTower139" parent="." unique_id=1730013489 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower139" parent="other towers" unique_id=1730013489 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -998.78613, -500, 1235)
 
-[node name="terminal distantTower140" parent="." unique_id=980825367 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower140" parent="other towers" unique_id=980825367 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, 1235)
 
-[node name="terminal distantTower141" parent="." unique_id=1941978958 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower141" parent="other towers" unique_id=1941978958 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, 1235)
 
-[node name="terminal distantTower142" parent="." unique_id=1385088405 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower142" parent="other towers" unique_id=1385088405 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 907.43384, -500, 1235)
 
-[node name="terminal distantTower143" parent="." unique_id=1599763208 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower143" parent="other towers" unique_id=1599763208 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1118.4338, -500, 1235)
 
-[node name="terminal distantTower144" parent="." unique_id=1646487549 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower144" parent="other towers" unique_id=1646487549 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1331.4338, -500, 1235)
 
-[node name="terminal distantTower145" parent="." unique_id=1070956171 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower145" parent="other towers" unique_id=1070956171 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 56.213867, -500, 1020)
 
-[node name="terminal distantTower146" parent="." unique_id=355405843 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower146" parent="other towers" unique_id=355405843 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 269.21387, -500, 1020)
 
-[node name="terminal distantTower147" parent="." unique_id=1150929093 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower147" parent="other towers" unique_id=1150929093 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 480.21387, -500, 1020)
 
-[node name="terminal distantTower148" parent="." unique_id=103771181 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower148" parent="other towers" unique_id=103771181 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, 1020)
 
-[node name="terminal distantTower149" parent="." unique_id=460766867 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower149" parent="other towers" unique_id=460766867 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -783.78613, -500, 1020)
 
-[node name="terminal distantTower150" parent="." unique_id=1110586638 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower150" parent="other towers" unique_id=1110586638 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 150, 0, -35.35534, 0, 35.35534, -570.78613, -500, 1020)
 
-[node name="terminal distantTower151" parent="." unique_id=1853805140 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower151" parent="other towers" unique_id=1853805140 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -359.78613, -500, 1020)
 
-[node name="terminal distantTower152" parent="." unique_id=1930032664 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower152" parent="other towers" unique_id=1930032664 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -146.78613, -500, 1020)
 
-[node name="terminal distantTower153" parent="." unique_id=1604924501 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower153" parent="other towers" unique_id=1604924501 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, -1422.7861, -500, 1020)
 
-[node name="terminal distantTower154" parent="." unique_id=1814584356 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower154" parent="other towers" unique_id=1814584356 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, 1020)
 
-[node name="terminal distantTower155" parent="." unique_id=1223191610 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower155" parent="other towers" unique_id=1223191610 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -998.78613, -500, 1020)
 
-[node name="terminal distantTower156" parent="." unique_id=961167470 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower156" parent="other towers" unique_id=961167470 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1546.4338, -500, 1020)
 
-[node name="terminal distantTower157" parent="." unique_id=863496925 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower157" parent="other towers" unique_id=863496925 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, 1020)
 
-[node name="terminal distantTower158" parent="." unique_id=1811430904 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower158" parent="other towers" unique_id=1811430904 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 907.43384, -500, 1020)
 
-[node name="terminal distantTower159" parent="." unique_id=753031056 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower159" parent="other towers" unique_id=753031056 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, 1020)
 
-[node name="terminal distantTower160" parent="." unique_id=1351060681 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower160" parent="other towers" unique_id=1351060681 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, 1020)
 
-[node name="terminal distantTower161" parent="." unique_id=683464470 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower161" parent="other towers" unique_id=683464470 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 56.213867, -500, 814)
 
-[node name="terminal distantTower162" parent="." unique_id=1547679181 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower162" parent="other towers" unique_id=1547679181 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 269.21387, -500, 814)
 
-[node name="terminal distantTower163" parent="." unique_id=384051173 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower163" parent="other towers" unique_id=384051173 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 100, 0, -35.35534, 0, 35.35534, 480.21387, -500, 814)
 
-[node name="terminal distantTower164" parent="." unique_id=1800350252 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower164" parent="other towers" unique_id=1800350252 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 693.21387, -500, 814)
 
-[node name="terminal distantTower165" parent="." unique_id=1062376485 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower165" parent="other towers" unique_id=1062376485 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -783.78613, -500, 814)
 
-[node name="terminal distantTower166" parent="." unique_id=880635643 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower166" parent="other towers" unique_id=880635643 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -570.78613, -500, 814)
 
-[node name="terminal distantTower167" parent="." unique_id=976818066 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower167" parent="other towers" unique_id=976818066 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -359.78613, -500, 814)
 
-[node name="terminal distantTower168" parent="." unique_id=1430260677 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower168" parent="other towers" unique_id=1430260677 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -146.78613, -500, 814)
 
-[node name="terminal distantTower169" parent="." unique_id=716386780 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower169" parent="other towers" unique_id=716386780 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, 814)
 
-[node name="terminal distantTower170" parent="." unique_id=1995966532 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower170" parent="other towers" unique_id=1995966532 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 100, 0, -35.35534, 0, 35.35534, -1211.7861, -500, 814)
 
-[node name="terminal distantTower171" parent="." unique_id=388332828 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower171" parent="other towers" unique_id=388332828 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -998.78613, -500, 814)
 
-[node name="terminal distantTower172" parent="." unique_id=1858786726 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower172" parent="other towers" unique_id=1858786726 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 100, 0, -35.35534, 0, 35.35534, 1546.4338, -500, 814)
 
-[node name="terminal distantTower173" parent="." unique_id=35524413 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower173" parent="other towers" unique_id=35524413 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1750.1688, -500, 814)
 
-[node name="terminal distantTower174" parent="." unique_id=856866216 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower174" parent="other towers" unique_id=856866216 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, 814)
 
-[node name="terminal distantTower175" parent="." unique_id=469660902 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower175" parent="other towers" unique_id=469660902 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, 814)
 
-[node name="terminal distantTower176" parent="." unique_id=1572524279 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower176" parent="other towers" unique_id=1572524279 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1331.4338, -500, 814)
 
-[node name="terminal distantTower177" parent="." unique_id=1537003693 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower177" parent="other towers" unique_id=1537003693 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 56.213867, -500, 605.1715)
 
-[node name="terminal distantTower178" parent="." unique_id=1229435290 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower178" parent="other towers" unique_id=1229435290 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, 605.1715)
 
-[node name="terminal distantTower179" parent="." unique_id=142699323 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower179" parent="other towers" unique_id=142699323 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, 605.1715)
 
-[node name="terminal distantTower180" parent="." unique_id=4401183 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower180" parent="other towers" unique_id=4401183 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, 605.1715)
 
-[node name="terminal distantTower181" parent="." unique_id=984580609 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower181" parent="other towers" unique_id=984580609 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -783.78613, -500, 605.1715)
 
-[node name="terminal distantTower182" parent="." unique_id=457066621 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower182" parent="other towers" unique_id=457066621 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -570.78613, -500, 605.1715)
 
-[node name="terminal distantTower183" parent="." unique_id=1329764698 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower183" parent="other towers" unique_id=1329764698 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -359.78613, -500, 605.1715)
 
-[node name="terminal distantTower184" parent="." unique_id=43413753 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower184" parent="other towers" unique_id=43413753 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -146.78613, -500, 605.1715)
 
-[node name="terminal distantTower185" parent="." unique_id=1793732674 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower185" parent="other towers" unique_id=1793732674 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, 605.1715)
 
-[node name="terminal distantTower186" parent="." unique_id=1637616109 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower186" parent="other towers" unique_id=1637616109 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, 605.1715)
 
-[node name="terminal distantTower187" parent="." unique_id=694720497 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower187" parent="other towers" unique_id=694720497 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -998.78613, -500, 605.1715)
 
-[node name="terminal distantTower188" parent="." unique_id=270251945 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower188" parent="other towers" unique_id=270251945 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, 605.1715)
 
-[node name="terminal distantTower189" parent="." unique_id=919167723 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower189" parent="other towers" unique_id=919167723 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, 605.1715)
 
-[node name="terminal distantTower190" parent="." unique_id=709772806 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower190" parent="other towers" unique_id=709772806 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 50, 0, -35.35534, 0, 35.35534, 907.43384, -500, 605.1715)
 
-[node name="terminal distantTower191" parent="." unique_id=235012668 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower191" parent="other towers" unique_id=235012668 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, 605.1715)
 
-[node name="terminal distantTower192" parent="." unique_id=636742771 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower192" parent="other towers" unique_id=636742771 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1331.4338, -500, 605.1715)
 
-[node name="terminal distantTower193" parent="." unique_id=1990449134 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower193" parent="other towers" unique_id=1990449134 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 56.213867, -500, 403.98315)
 
-[node name="terminal distantTower194" parent="." unique_id=1695576276 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower194" parent="other towers" unique_id=1695576276 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 269.21387, -500, 403.98315)
 
-[node name="terminal distantTower195" parent="." unique_id=1075242448 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower195" parent="other towers" unique_id=1075242448 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 480.21387, -500, 403.98315)
 
-[node name="terminal distantTower196" parent="." unique_id=1122615996 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower196" parent="other towers" unique_id=1122615996 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 693.21387, -500, 403.98315)
 
-[node name="terminal distantTower197" parent="." unique_id=899848392 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower197" parent="other towers" unique_id=899848392 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 200, 0, -35.35534, 0, 35.35534, -783.78613, -500, 403.98315)
 
-[node name="terminal distantTower198" parent="." unique_id=1621855946 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower198" parent="other towers" unique_id=1621855946 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -570.78613, -500, 403.98315)
 
-[node name="terminal distantTower199" parent="." unique_id=1058791541 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower199" parent="other towers" unique_id=1058791541 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 100, 0, -35.35534, 0, 35.35534, -359.78613, -500, 403.98315)
 
-[node name="terminal distantTower200" parent="." unique_id=1356085765 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower200" parent="other towers" unique_id=1356085765 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -146.78613, -500, 403.98315)
 
-[node name="terminal distantTower201" parent="." unique_id=965956751 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower201" parent="other towers" unique_id=965956751 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1422.7861, -500, 403.98315)
 
-[node name="terminal distantTower202" parent="." unique_id=908235308 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower202" parent="other towers" unique_id=908235308 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -1211.7861, -500, 403.98315)
 
-[node name="terminal distantTower203" parent="." unique_id=580822710 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower203" parent="other towers" unique_id=580822710 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -998.78613, -500, 403.98315)
 
-[node name="terminal distantTower204" parent="." unique_id=307321359 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower204" parent="other towers" unique_id=307321359 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1546.4338, -500, 403.98315)
 
-[node name="terminal distantTower205" parent="." unique_id=930824180 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower205" parent="other towers" unique_id=930824180 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, 403.98315)
 
-[node name="terminal distantTower206" parent="." unique_id=985630963 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower206" parent="other towers" unique_id=985630963 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, 403.98315)
 
-[node name="terminal distantTower207" parent="." unique_id=1239602437 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower207" parent="other towers" unique_id=1239602437 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1118.4338, -500, 403.98315)
 
-[node name="terminal distantTower208" parent="." unique_id=1359824427 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower208" parent="other towers" unique_id=1359824427 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1331.4338, -500, 403.98315)
 
-[node name="terminal distantTower209" parent="." unique_id=337822929 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower209" parent="other towers" unique_id=337822929 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 56.213867, -500, 205.34143)
 
-[node name="terminal distantTower210" parent="." unique_id=55726241 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower210" parent="other towers" unique_id=55726241 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 269.21387, -500, 205.34143)
 
-[node name="terminal distantTower211" parent="." unique_id=2052760590 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower211" parent="other towers" unique_id=2052760590 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 480.21387, -500, 205.34143)
 
-[node name="terminal distantTower212" parent="." unique_id=1021637285 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower212" parent="other towers" unique_id=1021637285 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 693.21387, -500, 205.34143)
 
-[node name="terminal distantTower213" parent="." unique_id=535802364 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower213" parent="other towers" unique_id=535802364 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -783.78613, -500, 205.34143)
 
-[node name="terminal distantTower214" parent="." unique_id=53695173 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower214" parent="other towers" unique_id=53695173 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -570.78613, -500, 205.34143)
 
-[node name="terminal distantTower215" parent="." unique_id=1391340511 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower215" parent="other towers" unique_id=1391340511 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, -359.78613, -500, 205.34143)
 
-[node name="terminal distantTower216" parent="." unique_id=1043532725 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower216" parent="other towers" unique_id=1043532725 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -146.78613, -500, 205.34143)
 
-[node name="terminal distantTower217" parent="." unique_id=814238855 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower217" parent="other towers" unique_id=814238855 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -1422.7861, -500, 205.34143)
 
-[node name="terminal distantTower218" parent="." unique_id=191776936 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower218" parent="other towers" unique_id=191776936 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1211.7861, -500, 205.34143)
 
-[node name="terminal distantTower219" parent="." unique_id=1987369274 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower219" parent="other towers" unique_id=1987369274 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -998.78613, -500, 205.34143)
 
-[node name="terminal distantTower220" parent="." unique_id=774315428 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower220" parent="other towers" unique_id=774315428 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, 205.34143)
 
-[node name="terminal distantTower221" parent="." unique_id=833922977 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower221" parent="other towers" unique_id=833922977 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 150, 0, -35.35534, 0, 35.35534, 1750.1688, -500, 205.34143)
 
-[node name="terminal distantTower222" parent="." unique_id=1460886893 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower222" parent="other towers" unique_id=1460886893 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, 205.34143)
 
-[node name="terminal distantTower223" parent="." unique_id=2030454729 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower223" parent="other towers" unique_id=2030454729 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 1118.4338, -500, 205.34143)
 
-[node name="terminal distantTower224" parent="." unique_id=1153792818 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower224" parent="other towers" unique_id=1153792818 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, 205.34143)
 
-[node name="terminal towers2" parent="." unique_id=648080588 instance=ExtResource("4_x6ack")]
+[node name="terminal towers2" parent="other towers" unique_id=648080588 instance=ExtResource("4_x6ack")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -251.035, 0)
 
-[node name="terminal distantTower225" parent="." unique_id=1498561084 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower225" parent="other towers" unique_id=1498561084 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 480.21387, -500, 205.34143)
 
-[node name="terminal distantTower226" parent="." unique_id=857005109 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower226" parent="other towers" unique_id=857005109 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, 205.34143)
 
-[node name="terminal distantTower227" parent="." unique_id=1536359370 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower227" parent="other towers" unique_id=1536359370 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, 205.34143)
 
-[node name="terminal distantTower228" parent="." unique_id=1896721468 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower228" parent="other towers" unique_id=1896721468 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, 205.34143)
 
-[node name="terminal distantTower229" parent="." unique_id=610007450 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower229" parent="other towers" unique_id=610007450 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, 205.34143)
 
-[node name="terminal distantTower230" parent="." unique_id=1317426728 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower230" parent="other towers" unique_id=1317426728 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, 205.34143)
 
-[node name="terminal distantTower231" parent="." unique_id=1739095788 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower231" parent="other towers" unique_id=1739095788 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1331.4338, -500, 205.34143)
 
-[node name="terminal distantTower232" parent="." unique_id=368292211 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower232" parent="other towers" unique_id=368292211 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 693.21387, -500, -2.6585693)
 
-[node name="terminal distantTower233" parent="." unique_id=539294737 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower233" parent="other towers" unique_id=539294737 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1546.4338, -500, -2.6585693)
 
-[node name="terminal distantTower234" parent="." unique_id=1056904509 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower234" parent="other towers" unique_id=1056904509 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -2.6585693)
 
-[node name="terminal distantTower235" parent="." unique_id=1015872848 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower235" parent="other towers" unique_id=1015872848 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, -2.6585693)
 
-[node name="terminal distantTower236" parent="." unique_id=1855784954 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower236" parent="other towers" unique_id=1855784954 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -2.6585693)
 
-[node name="terminal distantTower237" parent="." unique_id=1946749693 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower237" parent="other towers" unique_id=1946749693 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 200, 0, 0, 0, 50, 1331.4338, -500, -2.6585693)
 
-[node name="terminal distantTower238" parent="." unique_id=1483013029 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower238" parent="other towers" unique_id=1483013029 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 693.21387, -500, -2.6585693)
 
-[node name="terminal distantTower239" parent="." unique_id=582158262 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower239" parent="other towers" unique_id=582158262 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -2.6585693)
 
-[node name="terminal distantTower240" parent="." unique_id=72214333 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower240" parent="other towers" unique_id=72214333 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -2.6585693)
 
-[node name="terminal distantTower241" parent="." unique_id=686702233 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower241" parent="other towers" unique_id=686702233 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 907.43384, -500, -2.6585693)
 
-[node name="terminal distantTower242" parent="." unique_id=491744612 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower242" parent="other towers" unique_id=491744612 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -2.6585693)
 
-[node name="terminal distantTower243" parent="." unique_id=467818620 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower243" parent="other towers" unique_id=467818620 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1331.4338, -500, -2.6585693)
 
-[node name="terminal distantTower244" parent="." unique_id=367172135 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower244" parent="other towers" unique_id=367172135 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 693.21387, -500, -183.65857)
 
-[node name="terminal distantTower256" parent="." unique_id=686112118 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower256" parent="other towers" unique_id=686112118 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 471.21387, -500, -2.6585693)
 
-[node name="terminal distantTower257" parent="." unique_id=297740629 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower257" parent="other towers" unique_id=297740629 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 471.21387, -500, -183.65857)
 
-[node name="terminal distantTower258" parent="." unique_id=119508002 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower258" parent="other towers" unique_id=119508002 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -357.42386, -500, -2.6585693)
 
-[node name="terminal distantTower259" parent="." unique_id=1640052575 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower259" parent="other towers" unique_id=1640052575 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -357.42386, -500, -183.65857)
 
-[node name="terminal distantTower260" parent="." unique_id=2049976418 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower260" parent="other towers" unique_id=2049976418 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -567.4238, -500, -2.6585693)
 
-[node name="terminal distantTower261" parent="." unique_id=1868748145 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower261" parent="other towers" unique_id=1868748145 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -567.4238, -500, -183.65857)
 
-[node name="terminal distantTower262" parent="." unique_id=46854957 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower262" parent="other towers" unique_id=46854957 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -795.4238, -500, -2.6585693)
 
-[node name="terminal distantTower263" parent="." unique_id=1261685280 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower263" parent="other towers" unique_id=1261685280 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 200, 0, -35.35534, 0, 35.35534, -795.4238, -500, -183.65857)
 
-[node name="terminal distantTower264" parent="." unique_id=560333199 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower264" parent="other towers" unique_id=560333199 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, -1021.4238, -500, -2.6585693)
 
-[node name="terminal distantTower265" parent="." unique_id=677431152 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower265" parent="other towers" unique_id=677431152 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1021.4238, -500, -183.65857)
 
-[node name="terminal distantTower266" parent="." unique_id=1287650452 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower266" parent="other towers" unique_id=1287650452 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1225.4238, -500, -2.6585693)
 
-[node name="terminal distantTower267" parent="." unique_id=292842120 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower267" parent="other towers" unique_id=292842120 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1225.4238, -500, -183.65857)
 
-[node name="terminal distantTower268" parent="." unique_id=1874730452 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower268" parent="other towers" unique_id=1874730452 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 100, 0, -35.35534, 0, 35.35534, -1427.4238, -500, -2.6585693)
 
-[node name="terminal distantTower269" parent="." unique_id=1249393572 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower269" parent="other towers" unique_id=1249393572 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, -1427.4238, -500, -183.65857)
 
-[node name="terminal distantTower245" parent="." unique_id=21375170 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower245" parent="other towers" unique_id=21375170 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -183.65857)
 
-[node name="terminal distantTower246" parent="." unique_id=850441963 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower246" parent="other towers" unique_id=850441963 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1750.1688, -500, -183.65857)
 
-[node name="terminal distantTower247" parent="." unique_id=1055530596 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower247" parent="other towers" unique_id=1055530596 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 75, 0, 0, 0, 50, 907.43384, -500, -183.65857)
 
-[node name="terminal distantTower248" parent="." unique_id=1083337954 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower248" parent="other towers" unique_id=1083337954 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -183.65857)
 
-[node name="terminal distantTower249" parent="." unique_id=1267518799 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower249" parent="other towers" unique_id=1267518799 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 1331.4338, -500, -183.65857)
 
-[node name="terminal distantTower250" parent="." unique_id=1568861230 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower250" parent="other towers" unique_id=1568861230 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 693.21387, -500, -183.65857)
 
-[node name="terminal distantTower251" parent="." unique_id=1869744618 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower251" parent="other towers" unique_id=1869744618 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1546.4338, -500, -183.65857)
 
-[node name="terminal distantTower252" parent="." unique_id=88187158 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower252" parent="other towers" unique_id=88187158 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1750.1688, -500, -183.65857)
 
-[node name="terminal distantTower253" parent="." unique_id=468052378 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower253" parent="other towers" unique_id=468052378 instance=ExtResource("11_76v2p")]
 transform = Transform3D(35.35534, 0, 35.35534, 0, 200, 0, -35.35534, 0, 35.35534, 907.43384, -500, -183.65857)
 
-[node name="terminal distantTower254" parent="." unique_id=1866653948 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower254" parent="other towers" unique_id=1866653948 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 100, 0, 0, 0, 50, 1118.4338, -500, -183.65857)
 
-[node name="terminal distantTower255" parent="." unique_id=68921276 instance=ExtResource("11_76v2p")]
+[node name="terminal distantTower255" parent="other towers" unique_id=68921276 instance=ExtResource("11_76v2p")]
 transform = Transform3D(50, 0, 0, 0, 150, 0, 0, 0, 50, 1331.4338, -500, -183.65857)
 
 [node name="Win_ui" parent="." unique_id=976927344 instance=ExtResource("13_ioaeq")]
 
 [node name="DeadUI" parent="." unique_id=663299374 instance=ExtResource("10_mai8y")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=169268539]
+stream = ExtResource("12_drdnd")
+autoplay = true
+
+[node name="terminal_ramp" parent="." unique_id=306532547 instance=ExtResource("5_6ev3c")]
+transform = Transform3D(1, 0, 0, 0, 0.9616537, -0.2742666, 0, 0.2742666, 0.9616537, 36.308403, -1.0338528, -48.948822)
+
+[node name="terminal_fence" parent="." unique_id=1159806689 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.049828, -1.2850227, -49.725655)
+
+[node name="terminal_fence2" parent="." unique_id=398532364 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.408115, -1.2850223, -49.592037)
+
+[node name="terminal_fence3" parent="." unique_id=1390689965 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.305103, -1.2850223, -49.592037)
+
+[node name="terminal_fence4" parent="." unique_id=1174551706 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.200764, -1.2850223, -49.592037)
+
+[node name="terminal_fence5" parent="." unique_id=1162369763 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.097752, -1.2850223, -49.592037)
+
+[node name="terminal_fence6" parent="." unique_id=284031273 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.972944, -1.2850223, -49.592037)
+
+[node name="terminal_fence7" parent="." unique_id=1742658423 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.869932, -1.2850223, -49.592037)
+
+[node name="terminal_fence8" parent="." unique_id=1532372904 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.765593, -1.2850223, -49.592037)
+
+[node name="terminal_fence9" parent="." unique_id=395231827 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.66258, -1.2850223, -49.592037)
+
+[node name="terminal_fence10" parent="." unique_id=1276711538 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.58578, -1.2850223, -49.592037)
+
+[node name="terminal_fence11" parent="." unique_id=1376760550 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.482767, -1.2850223, -49.592037)
+
+[node name="terminal_fence12" parent="." unique_id=1291456450 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3784275, -1.2850223, -49.592037)
+
+[node name="terminal_fence13" parent="." unique_id=1930169070 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.275415, -1.2850223, -49.592037)
+
+[node name="terminal_fence14" parent="." unique_id=868825828 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2770195, -35.9898, -55.154984)
+
+[node name="terminal_fence15" parent="." unique_id=845443280 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2770195, -35.9898, -55.154984)
+
+[node name="terminal_fence16" parent="." unique_id=1697768464 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2770195, -35.9898, -55.154984)
+
+[node name="terminal_fence17" parent="." unique_id=1144700109 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2770195, -35.9898, -55.154984)
+
+[node name="terminal_fence18" parent="." unique_id=414327626 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2770195, -35.9898, -55.154984)
+
+[node name="terminal_fence19" parent="." unique_id=2015917095 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -54.09189)
+
+[node name="terminal_fence20" parent="." unique_id=1716189625 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -52.09189)
+
+[node name="terminal_fence21" parent="." unique_id=469104422 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -50.09189)
+
+[node name="terminal_fence22" parent="." unique_id=166214311 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -48.09189)
+
+[node name="terminal_fence23" parent="." unique_id=251145520 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.874138, -64.992516, -46.09189)
+
+[node name="terminal_fence24" parent="." unique_id=1163716812 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -58.251877)
+
+[node name="terminal_fence25" parent="." unique_id=370281727 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -60.251877)
+
+[node name="terminal_fence26" parent="." unique_id=1488001937 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -62.251877)
+
+[node name="terminal_fence27" parent="." unique_id=2024740297 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -64.25188)
+
+[node name="terminal_fence28" parent="." unique_id=802120580 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -66.25188)
+
+[node name="terminal_fence29" parent="." unique_id=784322802 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -68.25188)
+
+[node name="terminal_fence30" parent="." unique_id=1942606417 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -70.25188)
+
+[node name="terminal_fence31" parent="." unique_id=611589315 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -72.25188)
+
+[node name="terminal_fence32" parent="." unique_id=692145128 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -74.25188)
+
+[node name="terminal_fence33" parent="." unique_id=862165244 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -76.25188)
+
+[node name="terminal_fence34" parent="." unique_id=1452502419 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -78.25188)
+
+[node name="terminal_fence35" parent="." unique_id=104596851 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -80.25188)
+
+[node name="terminal_fence36" parent="." unique_id=142880228 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -82.25188)
+
+[node name="terminal_fence37" parent="." unique_id=229419147 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -84.25188)
+
+[node name="terminal_fence38" parent="." unique_id=420819699 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -86.25188)
+
+[node name="terminal_fence39" parent="." unique_id=1974888596 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -88.25188)
+
+[node name="terminal_fence40" parent="." unique_id=1663349165 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -90.25188)
+
+[node name="terminal_fence41" parent="." unique_id=140308292 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -92.25188)
+
+[node name="terminal_fence42" parent="." unique_id=1928631592 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -94.25188)
+
+[node name="terminal_fence43" parent="." unique_id=781559551 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -96.25188)
+
+[node name="terminal_fence44" parent="." unique_id=1361137076 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -98.25188)
+
+[node name="terminal_fence45" parent="." unique_id=1229406201 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -100.25188)
+
+[node name="terminal_fence46" parent="." unique_id=1990442933 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -102.25188)
+
+[node name="terminal_fence47" parent="." unique_id=1796686806 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -104.25188)
+
+[node name="terminal_fence48" parent="." unique_id=1162554826 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -106.25188)
+
+[node name="terminal_fence49" parent="." unique_id=965783476 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -108.25188)
+
+[node name="terminal_fence50" parent="." unique_id=152917047 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -110.25188)
+
+[node name="terminal_fence51" parent="." unique_id=2057783957 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -112.25188)
+
+[node name="terminal_fence52" parent="." unique_id=258922375 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -114.25188)
+
+[node name="terminal_fence53" parent="." unique_id=851263037 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -116.25188)
+
+[node name="terminal_fence54" parent="." unique_id=2020891118 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -118.25188)
+
+[node name="terminal_fence55" parent="." unique_id=1865963443 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -120.25188)
+
+[node name="terminal_fence56" parent="." unique_id=2087822834 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -122.25188)
+
+[node name="terminal_fence57" parent="." unique_id=2012467798 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -124.25188)
+
+[node name="terminal_fence58" parent="." unique_id=1899341254 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -126.25188)
+
+[node name="terminal_fence59" parent="." unique_id=19402670 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -128.25188)
+
+[node name="terminal_fence60" parent="." unique_id=401874593 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -130.25188)
+
+[node name="terminal_fence61" parent="." unique_id=98875089 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -132.25188)
+
+[node name="terminal_fence62" parent="." unique_id=1617199062 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -134.25188)
+
+[node name="terminal_fence63" parent="." unique_id=1770784355 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.824448, -152.00107, -136.25188)
+
+[node name="terminal_fence64" parent="." unique_id=1141262118 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -58.251877)
+
+[node name="terminal_fence65" parent="." unique_id=1402985099 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -60.251877)
+
+[node name="terminal_fence66" parent="." unique_id=180394238 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -62.251877)
+
+[node name="terminal_fence67" parent="." unique_id=2021357025 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -64.25188)
+
+[node name="terminal_fence68" parent="." unique_id=796320251 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -66.25188)
+
+[node name="terminal_fence69" parent="." unique_id=1615901843 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -68.25188)
+
+[node name="terminal_fence70" parent="." unique_id=1776492782 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -70.25188)
+
+[node name="terminal_fence71" parent="." unique_id=806969417 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -72.25188)
+
+[node name="terminal_fence72" parent="." unique_id=1814927500 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -74.25188)
+
+[node name="terminal_fence73" parent="." unique_id=1737679583 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -76.25188)
+
+[node name="terminal_fence74" parent="." unique_id=2009742511 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -78.25188)
+
+[node name="terminal_fence75" parent="." unique_id=262248829 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -80.25188)
+
+[node name="terminal_fence76" parent="." unique_id=1698869276 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -82.25188)
+
+[node name="terminal_fence77" parent="." unique_id=248312152 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -84.25188)
+
+[node name="terminal_fence78" parent="." unique_id=1644708910 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -86.25188)
+
+[node name="terminal_fence79" parent="." unique_id=2128154360 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -88.25188)
+
+[node name="terminal_fence80" parent="." unique_id=2054633199 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -90.25188)
+
+[node name="terminal_fence81" parent="." unique_id=1242121327 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -92.25188)
+
+[node name="terminal_fence82" parent="." unique_id=1082118504 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -94.25188)
+
+[node name="terminal_fence83" parent="." unique_id=1329225748 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -96.25188)
+
+[node name="terminal_fence84" parent="." unique_id=1074530177 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -98.25188)
+
+[node name="terminal_fence85" parent="." unique_id=1434629722 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -100.25188)
+
+[node name="terminal_fence86" parent="." unique_id=1082172255 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -102.25188)
+
+[node name="terminal_fence87" parent="." unique_id=550059689 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -104.25188)
+
+[node name="terminal_fence88" parent="." unique_id=5971056 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -106.25188)
+
+[node name="terminal_fence89" parent="." unique_id=1108015004 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -108.25188)
+
+[node name="terminal_fence90" parent="." unique_id=1342372779 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -110.25188)
+
+[node name="terminal_fence91" parent="." unique_id=347696759 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -112.25188)
+
+[node name="terminal_fence92" parent="." unique_id=340164876 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -114.25188)
+
+[node name="terminal_fence93" parent="." unique_id=51704381 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -116.25188)
+
+[node name="terminal_fence94" parent="." unique_id=1927202434 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -118.25188)
+
+[node name="terminal_fence95" parent="." unique_id=1125486334 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -120.25188)
+
+[node name="terminal_fence96" parent="." unique_id=1238664828 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -122.25188)
+
+[node name="terminal_fence97" parent="." unique_id=1364433318 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -124.25188)
+
+[node name="terminal_fence98" parent="." unique_id=381046465 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -126.25188)
+
+[node name="terminal_fence99" parent="." unique_id=2110277580 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -128.25188)
+
+[node name="terminal_fence100" parent="." unique_id=1761010839 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -130.25188)
+
+[node name="terminal_fence101" parent="." unique_id=1361409948 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -132.25188)
+
+[node name="terminal_fence102" parent="." unique_id=1497764521 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -134.25188)
+
+[node name="terminal_fence103" parent="." unique_id=588621146 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.746012, -152.00107, -136.25188)
+
+[node name="terminal_fence104" parent="." unique_id=1690859819 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 16.46304)
+
+[node name="terminal_fence105" parent="." unique_id=295769329 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 14.463039)
+
+[node name="terminal_fence106" parent="." unique_id=742454825 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 12.463039)
+
+[node name="terminal_fence107" parent="." unique_id=511681251 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 10.463039)
+
+[node name="terminal_fence108" parent="." unique_id=756497535 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 8.463039)
+
+[node name="terminal_fence109" parent="." unique_id=1850315160 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 6.4630394)
+
+[node name="terminal_fence110" parent="." unique_id=1955202254 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 4.4630394)
+
+[node name="terminal_fence111" parent="." unique_id=806758297 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 2.4630394)
+
+[node name="terminal_fence112" parent="." unique_id=1015542685 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, 0.4630394)
+
+[node name="terminal_fence113" parent="." unique_id=637967747 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -1.5369606)
+
+[node name="terminal_fence114" parent="." unique_id=1726217067 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -3.5369606)
+
+[node name="terminal_fence115" parent="." unique_id=62193880 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -5.5369606)
+
+[node name="terminal_fence116" parent="." unique_id=1711975423 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -7.5369606)
+
+[node name="terminal_fence117" parent="." unique_id=1558559099 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -9.536961)
+
+[node name="terminal_fence118" parent="." unique_id=1774279476 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -11.536961)
+
+[node name="terminal_fence119" parent="." unique_id=2011762587 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -13.536961)
+
+[node name="terminal_fence120" parent="." unique_id=766153961 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -15.536961)
+
+[node name="terminal_fence121" parent="." unique_id=1402348069 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -17.53696)
+
+[node name="terminal_fence122" parent="." unique_id=1846511489 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -19.53696)
+
+[node name="terminal_fence123" parent="." unique_id=1841368283 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -21.53696)
+
+[node name="terminal_fence124" parent="." unique_id=1055940678 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -23.53696)
+
+[node name="terminal_fence125" parent="." unique_id=1582959037 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -25.53696)
+
+[node name="terminal_fence126" parent="." unique_id=61457000 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -27.53696)
+
+[node name="terminal_fence127" parent="." unique_id=1625009131 instance=ExtResource("7_maf8m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.73173, -244.08672, -29.53696)
+
+[node name="terminal_ramp2" parent="." unique_id=1757350926 instance=ExtResource("5_6ev3c")]
+transform = Transform3D(1, 0, 0, 0, 0.96356076, -0.2674895, 0, 0.2674895, 0.96356076, 54.567142, -183.86636, 25.843325)
+
+[node name="terminal_fence128" parent="." unique_id=389494984 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.510227, -184.09813, 25.398666)
+
+[node name="terminal_fence129" parent="." unique_id=2073303033 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.510227, -184.09813, 25.398666)
+
+[node name="terminal_fence131" parent="." unique_id=1221517358 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.00528, -184.09813, 25.398666)
+
+[node name="terminal_fence130" parent="." unique_id=418064482 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence132" parent="." unique_id=577545284 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence133" parent="." unique_id=782259061 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence134" parent="." unique_id=894417446 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence135" parent="." unique_id=632655668 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence136" parent="." unique_id=1303524910 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence137" parent="." unique_id=125118474 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence138" parent="." unique_id=156154185 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence139" parent="." unique_id=568282008 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence140" parent="." unique_id=553352065 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence141" parent="." unique_id=671596642 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence142" parent="." unique_id=1078805365 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence143" parent="." unique_id=365808663 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence144" parent="." unique_id=506097687 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence145" parent="." unique_id=1972094738 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence146" parent="." unique_id=2008383222 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence147" parent="." unique_id=1053406685 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence148" parent="." unique_id=1729845143 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence149" parent="." unique_id=1889053502 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence150" parent="." unique_id=1536575396 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence151" parent="." unique_id=785148557 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence152" parent="." unique_id=482259064 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence153" parent="." unique_id=1900192334 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence154" parent="." unique_id=1837993384 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence155" parent="." unique_id=2013899590 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence156" parent="." unique_id=529545396 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence157" parent="." unique_id=1440432213 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.12881, -301.28503, -35.93837)
+
+[node name="terminal_fence158" parent="." unique_id=1452083561 instance=ExtResource("7_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.12881, -301.28503, -35.93837)
