@@ -244,12 +244,19 @@ func wallslide_state() -> void:
 		stateMachine.change_state(stateMachine.playerState.FALLING)
 		return
 	
+	if Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_VELOCITY
+		stateMachine.change_state(stateMachine.playerState.JUMPING)
+		return
+	
+	
 func rolling_state(delta: float) -> void:
 	head.rotation_degrees.x += -360.0 * delta
 	print(head.rotation_degrees.x)
 	if head.rotation_degrees.x <= -350:
 		head.rotation_degrees.x = 0
 		aimLook.set_camera_control(true)
+		CanRoll = false
 		stateMachine.change_state(stateMachine.playerState.IDLE)
 		return
 	
