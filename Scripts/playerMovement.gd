@@ -4,6 +4,7 @@ var lowestVelocity = 0
 var wallNormal
 var direction
 var lastWall
+var height: int = 999
 var sliding = false
 var CanRoll = false
 const baseWallrunTime = 0.9
@@ -23,9 +24,10 @@ const JUMP_VELOCITY = 4.5
 @onready var stateMachine = $StateMachine
 @onready var timer = $WallRunTimer
 
+
+
 func _physics_process(delta: float) -> void:
-		
-	print (stateMachine.currentState)
+	height = position.y +999
 	apply_gravity(delta)	
 	match stateMachine.currentState:
 		stateMachine.playerState.IDLE:
