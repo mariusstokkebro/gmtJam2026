@@ -140,11 +140,11 @@ func running_state(delta:float) -> void:
 func falling_state(delta: float) -> void:
 	move_player()
 	lowestVelocity = min(lowestVelocity, velocity.y)
+	if velocity.y <= -80:
+		deadUI.turn_visible()
+		stateMachine.change_state(stateMachine.playerState.DEAD)
+		return
 	if rayCastDown.get_collider() != null and Input.is_action_just_pressed("sliding"):
-		if velocity.y <= -80:
-			deadUI.turn_visible()
-			stateMachine.change_state(stateMachine.playerState.DEAD)
-			return
 		if lowestVelocity < -15:
 			lowestVelocity = lowestVelocity * 0.5
 			take_damage(abs(lowestVelocity))
