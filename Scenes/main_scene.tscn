@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://booik12enhwur" path="res://Scenes/ui.tscn" id="5_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cb0fr5gt0gov4" path="res://Models/terminal_fence.glb" id="7_maf8m"]
 [ext_resource type="PackedScene" uid="uid://5xffln2jnarf" path="res://Models/terminal_fish.glb" id="9_76v2p"]
+[ext_resource type="Script" uid="uid://g2eukot5kdps" path="res://Scripts/terminal_fish.gd" id="9_m1efj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -92,3 +93,4 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -251.185, 0)
 
 [node name="terminal_fish" parent="." unique_id=1055127049 instance=ExtResource("9_76v2p")]
 transform = Transform3D(-48.29629, 0, 12.940957, 0, 50, 0, -12.940957, 0, -48.29629, 0, 368, 0)
+script = ExtResource("9_m1efj")
